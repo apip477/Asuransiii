@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 })->name('home');
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
 
 // 2. JALUR KHUSUS (Hanya Member yang Login)
 Route::get('/dashboard', function () {
