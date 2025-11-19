@@ -8,6 +8,10 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
+Route::get('/about-us', function () {
+    return view('about');
+})->name('about');
+
 // 2. JALUR KHUSUS (Hanya Member yang Login)
 Route::get('/dashboard', function () {
     return view('dashboard');
