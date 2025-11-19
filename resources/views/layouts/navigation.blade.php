@@ -27,7 +27,7 @@
                     <a href="#" class="whitespace-nowrap text-indigo-100 hover:text-white transition">
                         Klaim
                     </a>
-                    <a href="#" class="whitespace-nowrap text-indigo-100 hover:text-white transition">
+                    <a href="{{ route('profile.contact')}}" class="whitespace-nowrap text-indigo-100 hover:text-white transition">
                         Contact
                     </a>
                     {{-- Tambah whitespace-nowrap agar "About Us" sejajar --}}
