@@ -1,11 +1,8 @@
 <x-app-layout>
 
-    {{-- ================================================== --}}
-    {{-- BAGIAN 1: HERO SECTION (CLEAN - TANPA BACKGROUND)  --}}
-    {{-- ================================================== --}}
     <div class="bg-gray-50 min-h-screen flex items-center justify-center pt-20 relative overflow-hidden">
         
-        {{-- Hiasan background abstrak (Opsional, biar ga sepi banget) --}}
+    }
         <div class="absolute top-0 left-0 w-64 h-64 bg-indigo-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
         <div class="absolute top-0 right-0 w-64 h-64 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
 
@@ -38,10 +35,6 @@
         </div>
     </div>
 
-
-    {{-- ================================================== --}}
-    {{-- BAGIAN 2: DAFTAR LAYANAN KAMI (DI BAWAH HERO)      --}}
-    {{-- ================================================== --}}
     <div class="bg-white py-24 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             

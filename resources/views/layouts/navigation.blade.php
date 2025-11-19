@@ -31,7 +31,7 @@
                         Contact
                     </a>
                     {{-- Tambah whitespace-nowrap agar "About Us" sejajar --}}
-                    <a href="#" class="whitespace-nowrap text-indigo-100 hover:text-white transition">
+                    <a href="{{ route('about') }}" class="whitespace-nowrap hover:text-white transition {{ request()->routeIs('about') ? 'text-white font-bold' : 'text-indigo-100' }}">
                         About Us
                     </a>
                 </div>
