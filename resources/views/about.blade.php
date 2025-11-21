@@ -28,12 +28,19 @@
                 <div>
                     <h2 class="text-3xl font-bold text-gray-900 mb-6">Visi & Misi Kami</h2>
                     <p class="text-gray-600 text-lg mb-6 leading-relaxed">
-                        Didirikan pada tahun 2024, HAKI Protect lahir dari kekhawatiran akan maraknya pembajakan karya
-                        digital. Kami percaya setiap ide brilian berhak mendapatkan perlindungan maksimal.
+                        Menjadi perusahaan Konsultan Penjamin Keuangan yang terkemuka dengan pengelolaan managemen yang
+                        handal.
+                        Menjadi perusahaan yang dapat memenuhi segala kebutuhan penerbitan instrumen penjaminan
+                        keuangan.
+                        Menjadi perusahaan yang berintegritas dalam perkembangan teknologi keuangan.
                     </p>
                     <p class="text-gray-600 text-lg mb-8 leading-relaxed">
-                        Kami menggabungkan teknologi Blockchain dengan asuransi hukum konvensional untuk memberikan rasa
-                        aman kepada para kreator, seniman, dan pengembang software di Indonesia.
+
+                        Memberikan Kepuasan dan Kemudahan dalam penerbitan Produk Instrumen Penjaminan Keuangan serta
+                        Asuransi Keuangan.
+                        Memberikan solusi terbaik dalam setiap permasalahan dalam Penerbitan Bank Garansi dan Surety
+                        Bond.
+                        Mengedepankan ketepatan waktu yang terintegrasi dengan Proses Penerbitan yang terjamin.
                     </p>
 
                     {{-- Statistik Kecil --}}
@@ -64,9 +71,9 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition">
                     <img class="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 border-indigo-50"
-                        src="https://ui-avatars.com/api/?name=Siti+Mintarsih&background=312e81&color=fff"
+                        src="https://ui-avatars.com/api/?name=Muhammad+Apipudin&background=312e81&color=fff"
                         alt="Siti">
-                    <h3 class="text-xl font-bold text-gray-900">Siti Mintarsih</h3>
+                    <h3 class="text-xl font-bold text-gray-900">Muhammad Apipudin</h3>
                     <p class="text-indigo-600 font-medium">Founder & CEO</p>
                     <p class="text-gray-500 text-sm mt-2">Visioner di balik HAKI Protect dengan pengalaman 10 tahun di
                         industri kreatif.</p>
@@ -74,8 +81,8 @@
 
                 <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition">
                     <img class="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 border-indigo-50"
-                        src="https://ui-avatars.com/api/?name=Budi+Santoso&background=4338ca&color=fff" alt="Budi">
-                    <h3 class="text-xl font-bold text-gray-900">Budi Santoso</h3>
+                        src="https://ui-avatars.com/api/?name=Fadli+Dwi+Nugraha&background=4338ca&color=fff" alt="Budi">
+                    <h3 class="text-xl font-bold text-gray-900">Fadli Dwi Nugraha</h3>
                     <p class="text-indigo-600 font-medium">Head of Legal</p>
                     <p class="text-gray-500 text-sm mt-2">Ahli hukum hak kekayaan intelektual yang siap membela hak
                         Anda.</p>
@@ -83,8 +90,8 @@
 
                 <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition">
                     <img class="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 border-indigo-50"
-                        src="https://ui-avatars.com/api/?name=Dewi+Putri&background=6366f1&color=fff" alt="Dewi">
-                    <h3 class="text-xl font-bold text-gray-900">Dewi Putri</h3>
+                        src="https://ui-avatars.com/api/?name=Muhammad+rifky+putra+hilmanyah&background=6366f1&color=fff" alt="Dewi">
+                    <h3 class="text-xl font-bold text-gray-900">M.Rifky Putra H.</h3>
                     <p class="text-indigo-600 font-medium">Tech Lead</p>
                     <p class="text-gray-500 text-sm mt-2">Arsitek sistem keamanan blockchain yang melindungi data Anda.
                     </p>
