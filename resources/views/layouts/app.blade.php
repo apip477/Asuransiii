@@ -32,5 +32,67 @@
                 {{ $slot }}
             </main>
         </div>
+
+        {{-- ================================================== --}}
+        {{-- FOOTER GLOBAL PT SAVANAAH JAYA UTAMA (NAVY THEME) --}}
+        {{-- ================================================== --}}
+        <footer class="bg-gray-900 text-white pt-12 mt-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+
+                    {{-- Kolom 1: Logo & Deskripsi --}}
+                    <div>
+                        <h4 class="text-xl font-bold text-indigo-400 mb-4">PT SJU</h4>
+                        <p class="text-gray-400 text-sm mb-4">
+                            Mitra terpercaya Anda dalam penjaminan Surety Bond dan Bank Garansi untuk kepastian proyek.
+                        </p>
+                    </div>
+
+                    {{-- Kolom 2: Quick Links --}}
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Menu Cepat</h4>
+                        <ul class="space-y-3 text-sm">
+                            <li><a href="{{ route('home') }}" class="text-gray-400 hover:text-white transition">Home</a></li>
+                            <li><a href="{{ route('about') }}" class="text-gray-400 hover:text-white transition">Tentang Kami</a></li>
+                            <li><a href="{{ route('produk') }}" class="text-gray-400 hover:text-white transition">Produk Jaminan</a></li>
+                        </ul>
+                    </div>
+
+                    {{-- Kolom 3: Kontak & Dukungan --}}
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Hubungi Kami</h4>
+                        <ul class="space-y-3 text-sm">
+                            <li>
+                                <p class="text-gray-400">Email:</p>
+                                <a href="mailto:info@savanah.com" class="text-white hover:text-indigo-400">info@savanah.com</a>
+                            </li>
+                            <li>
+                                <p class="text-gray-400">Telepon:</p>
+                                <a href="tel:+6221xxxxxx" class="text-white hover:text-indigo-400">+62 21 XXXX XXXX</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    {{-- Kolom 4: Legal & Media --}}
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Legalitas</h4>
+                        <ul class="space-y-3 text-sm">
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">Kebijakan Privasi</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">Syarat & Ketentuan</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                {{-- Copyright Bar --}}
+                <div class="mt-10 pt-6 border-t border-gray-700 text-center">
+                    <p class="text-sm text-gray-500">
+                        &copy; {{ date('Y') }} PT Savanaah Jaya Utama. All Rights Reserved.
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+        {{-- SCRIPT JAVASCRIPT ADA DI BAWAH INI --}}
     </body>
 </html>

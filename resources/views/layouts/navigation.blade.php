@@ -4,7 +4,6 @@
         <div class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-auto max-w-fit">
             
             {{-- Container Pill Navy --}}
-            {{-- SAYA KURANGI px-8 JADI px-6, DAN gap-8 JADI gap-1 --}}
             <div class="flex items-center justify-between bg-indigo-900 text-white rounded-full shadow-2xl px-6 py-3 border border-indigo-800">
                 
                 <a href="/" class="flex items-center gap-2 flex-shrink-0 hover:opacity-80 transition mr-8">
