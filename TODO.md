@@ -1,5 +1,4 @@
-# TODO List for Fixing Route 'produk' Error
+# TODO: Fix RouteNotFoundException for admin.mitra.index
 
-- [x] Add route for '/produk' in routes/web.php
-- [x] Create view file resources/views/produk.blade.php with basic content
-- [x] Test the application to ensure the route works
+- [x] Update route name in update method from 'mitra.index' to 'admin.mitra.index'
+- [x] Update route name in destroy method from 'mitra.index' to 'admin.mitra.index'

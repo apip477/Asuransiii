@@ -59,7 +59,7 @@
                     @else
                         {{-- BELUM LOGIN --}}
                         <a href="{{ route('login') }}" class="whitespace-nowrap bg-white text-indigo-900 px-6 py-2 rounded-full text-sm font-bold hover:bg-indigo-50 transition shadow-md">
-                            Login
+                            Alamat
                         </a>
                     @endauth
 

@@ -34,7 +34,7 @@
                     Daftar Sekarang
                 </a>
                 {{-- Tombol Pelajari --}}
-                <a href="#"
+                <a href="layanan"
                     class="bg-white text-indigo-900 border border-indigo-200 px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition">
                     Pelajari Layanan
                 </a>
@@ -242,57 +242,15 @@
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
-
-                {{-- Card 1: BANK JATIM --}}
-                <div class="p-4 md:p-7 bg-white rounded-lg shadow-sm border border-gray-100 flex items-center justify-center">
-                    <img src="{{ asset('images/mitra/bankjatim.svg') }}" alt="Bank Jatim Logo" class="w-24 h-auto object-contain">
-                </div>
-
-                {{-- Card 2: BNI --}}
-                <div class="p-4 md:p-7 bg-white rounded-lg shadow-sm border border-gray-100 flex items-center justify-center">
-                    <img src="{{ asset('images/mitra/bni.svg') }}" alt="BNI Logo" class="w-24 h-auto object-contain">
-                </div>
-
-                {{-- Card 3: BANK BUKOPIN --}}
-                <div class="p-4 md:p-7 bg-white rounded-lg shadow-sm border border-gray-100 flex items-center justify-center">
-                    <img src="{{ asset('images/mitra/bukopin.svg') }}" alt="Bank Bukopin Logo" class="w-24 h-auto object-contain">
-                </div>
-
-                {{-- Card 4: J TRUST BANK --}}
-                <div class="p-4 md:p-7 bg-white rounded-lg shadow-sm border border-gray-100 flex items-center justify-center">
-                    <img src="{{ asset('images/mitra/jtrust.svg') }}" alt="J Trust Bank Logo" class="w-24 h-auto object-contain">
-                </div>
-
-                {{-- Card 5: BCA --}}
-                <div class="p-4 md:p-7 bg-white rounded-lg shadow-sm border border-gray-100 flex items-center justify-center">
-                    <img src="{{ asset('images/mitra/bca.svg') }}" alt="BCA Logo" class="w-24 h-auto object-contain">
-                </div>
-
-                {{-- Card 6: MANDIRI --}}
-                <div class="p-4 md:p-7 bg-white rounded-lg shadow-sm border border-gray-100 flex items-center justify-center">
-                    <img src="{{ asset('images/mitra/mandiri.svg') }}" alt="Mandiri Logo" class="w-24 h-auto object-contain">
-                </div>
-
-                {{-- Card 7: BANK EXIM --}}
-                <div class="p-4 md:p-7 bg-white rounded-lg shadow-sm border border-gray-100 flex items-center justify-center">
-                    <img src="{{ asset('images/mitra/exim.svg') }}" alt="Bank Exim Logo" class="w-24 h-auto object-contain">
-                </div>
-
-                {{-- Card 8: BTN --}}
-                <div class="p-4 md:p-7 bg-white rounded-lg shadow-sm border border-gray-100 flex items-center justify-center">
-                    <img src="{{ asset('images/mitra/btn.svg') }}" alt="BTN Logo" class="w-24 h-auto object-contain">
-                </div>
-
-                {{-- Card 9: BRI --}}
-                <div class="p-4 md:p-7 bg-white rounded-lg shadow-sm border border-gray-100 flex items-center justify-center">
-                    <img src="{{ asset('images/mitra/bri.svg') }}" alt="BRI Logo" class="w-24 h-auto object-contain">
-                </div>
-
-                {{-- Card 10 (Placeholder / Sisa Slot) --}}
-                <div class="p-4 md:p-7 bg-white rounded-lg shadow-sm border border-gray-100 flex items-center justify-center">
-                    <span class="text-indigo-600 font-bold text-sm">Mitra Lainnya</span>
-                </div>
-
+                @foreach($mitras as $mitra)
+                    <div class="p-4 md:p-7 bg-white rounded-lg shadow-sm border border-gray-100 flex items-center justify-center">
+                        @if($mitra->image)
+                            <img src="{{ asset('storage/' . $mitra->image) }}" alt="{{ $mitra->name }} Logo" class="w-24 h-auto object-contain">
+                        @else
+                            <span class="text-indigo-600 font-bold text-sm">{{ $mitra->name }}</span>
+                        @endif
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
