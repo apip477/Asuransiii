@@ -19,7 +19,6 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-start border-b pb-12">
                 <div class="md:col-span-1 text-center md:text-left">
                     <h2 class="text-3xl font-extrabold text-indigo-900 mb-2">Bank Garansi</h2>
-                    <h2 class="text-3xl font-extrabold text-indigo-900 leading-tight">Bank Garansi</h2>
                     <div class="inline-flex p-3 bg-indigo-100 rounded-lg text-indigo-600">
                         <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-3m0-4v-4m0 7h1m-1 4h1"></path></svg>
                     </div>
