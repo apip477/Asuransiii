@@ -3,10 +3,12 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\WorkController;
 use App\Http\Controllers\User\SubmissionController;
+use App\Http\Controllers\Admin\SubmissionController as AdminSubmissionController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Work;
 use App\Models\User;
 use App\Models\Mitra;
+
 
 // 1. JALUR UMUM (Publik)
 Route::get('/', function () {
@@ -76,6 +78,8 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
 
     // Rute Manajemen Mitra
     Route::resource('mitra', App\Http\Controllers\Admin\MitraController::class)->names('admin.mitra');
+
+    Route::get('/admin/submissions', [AdminSubmissionController::class, 'index'])->name('admin.submissions.index');
 
 });
 
