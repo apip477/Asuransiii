@@ -42,7 +42,7 @@
 
                     {{-- Kolom 1: Logo & Deskripsi --}}
                     <div>
-                        <h4 class="text-xl font-bold text-indigo-400 mb-4">PT SJU</h4>
+                        <h4 class="text-xl font-bold text-indigo-400 mb-4">PT Savannah Jaya Utama</h4>
                         <p class="text-gray-400 text-sm mb-4">
                             Mitra terpercaya Anda dalam penjaminan Surety Bond dan Bank Garansi untuk kepastian proyek.
                         </p>
@@ -64,11 +64,11 @@
                         <ul class="space-y-3 text-sm">
                             <li>
                                 <p class="text-gray-400">Email:</p>
-                                <a href="mailto:info@savanah.com" class="text-white hover:text-indigo-400">info@savanah.com</a>
+                                <a href="mailto:info@savanah.com" class="text-white hover:text-indigo-400">savannah.guarantee165@gmail.com</a>
                             </li>
                             <li>
                                 <p class="text-gray-400">Telepon:</p>
-                                <a href="tel:+6221xxxxxx" class="text-white hover:text-indigo-400">+62 21 XXXX XXXX</a>
+                                <a href="tel:+6221xxxxxx" class="text-white hover:text-indigo-400">+62 813-8163-6933</a>
                             </li>
                         </ul>
                     </div>

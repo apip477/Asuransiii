@@ -8,7 +8,9 @@
                 
                 <a href="/" class="flex items-center gap-2 flex-shrink-0 hover:opacity-80 transition mr-8">
 
-                <img src="{{ asset('images/svnh.png') }}" alt="Savannah Jaya Logo" class="h-8 w-auto">
+            <div class="bg-white px-2 py-1.5 rounded-full flex items-center justify-center shadow-md">
+    <img src="{{ asset('images/svnh.png') }}" alt="Savannah Logo" class="h-7 w-auto">
+</div>
                 </a>
 
                 {{-- gap-6 diperkecil jadi gap-5 agar muat --}}
@@ -17,10 +19,10 @@
                         Home
                     </a>
                     <a href="#" class="whitespace-nowrap text-indigo-100 hover:text-white transition">
-                        Produk
+                        Product
                     </a>
                     <a href="#" class="whitespace-nowrap text-indigo-100 hover:text-white transition">
-                        Klaim
+                        Claim
                     </a>
                     <a href="{{ route('contact') }}" class="whitespace-nowrap text-indigo-100 hover:text-white transition">
                         Contact
