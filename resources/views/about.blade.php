@@ -4,7 +4,7 @@
     <div class="bg-indigo-900 py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">
-                Tentang PT Savanaah Jaya Utama
+                Tentang PT Savannah Jaya Utama
             </h1>
             <p class="text-xl text-indigo-200 max-w-2xl mx-auto">
                 Mitra terpercaya Anda dalam melindungi aset intelektual dan karya kreatif di era digital.

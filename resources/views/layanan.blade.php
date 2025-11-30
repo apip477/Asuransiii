@@ -28,9 +28,9 @@
                         Jaminan tertulis yang dikeluarkan oleh bank untuk menjamin pemenuhan kewajiban finansial nasabah kepada pihak penerima jaminan (Obligee).
                     </p>
                     <ul class="list-disc list-inside text-gray-600 ml-4 space-y-2">
-                        <li>**Fungsi:** Menggantikan uang tunai atau aset sebagai jaminan.</li>
-                        <li>**Risiko:** Bank menanggung risiko jika nasabah gagal bayar.</li>
-                        <li>**Kelemahan:** Sering memerlukan dana *collateral* yang besar di bank.</li>
+                        <li>Fungsi: Menggantikan uang tunai atau aset sebagai jaminan.</li>
+                        <li>Risiko: Bank menanggung risiko jika nasabah gagal bayar.</li>
+                        <li>Kelemahan: Sering memerlukan dana *collateral* yang besar di bank.</li>
                     </ul>
                 </div>
             </div>
@@ -48,9 +48,9 @@
                         Jaminan yang dikeluarkan oleh perusahaan penjaminan (seperti PT SJU) untuk menjamin pemenuhan kewajiban non-finansial dalam kontrak proyek.
                     </p>
                     <ul class="list-disc list-inside text-gray-600 ml-4 space-y-2">
-                        <li>**Fungsi:** Menjamin pemenang tender, pelaksanaan proyek, dan pemeliharaan.</li>
-                        <li>**Risiko:** Perusahaan penjamin menanggung risiko performa kontraktor.</li>
-                        <li>**Kelebihan:** Proses cepat, dan biaya lebih ringan dibandingkan Bank Garansi.</li>
+                        <li>Fungsi: Menjamin pemenang tender, pelaksanaan proyek, dan pemeliharaan.</li>
+                        <li>Risiko: Perusahaan penjamin menanggung risiko performa kontraktor.</li>
+                        <li>Kelebihan: Proses cepat, dan biaya lebih ringan dibandingkan Bank Garansi.</li>
                     </ul>
                 </div>
             </div>
@@ -68,8 +68,8 @@
                         Asuransi yang memberikan manfaat ganti rugi atas kerusakan, kehilangan, atau kerugian pada aset fisik (kecuali asuransi jiwa).
                     </p>
                     <ul class="list-disc list-inside text-gray-600 ml-4 space-y-2">
-                        <li>**Fungsi:** Melindungi aset kantor, kendaraan, dan alat berat proyek dari bencana atau kecelakaan.</li>
-                        <li>**Relevansi:** Penting untuk mengamankan aset yang digunakan dalam pelaksanaan kontrak.</li>
+                        <li>Fungsi: Melindungi aset kantor, kendaraan, dan alat berat proyek dari bencana atau kecelakaan.</li>
+                        <li>Relevansi: Penting untuk mengamankan aset yang digunakan dalam pelaksanaan kontrak.</li>
                     </ul>
                 </div>
             </div>
@@ -87,8 +87,8 @@
                         Jaminan kepada otoritas pabean (Bea Cukai) untuk memastikan bahwa bea masuk dan pajak akan dibayar oleh importir/eksportir.
                     </p>
                     <ul class="list-disc list-inside text-gray-600 ml-4 space-y-2">
-                        <li>**Fungsi:** Mempercepat proses pengeluaran barang impor tanpa harus membayar pajak di muka.</li>
-                        <li>**Relevansi:** Krusial bagi perusahaan yang terlibat dalam proyek impor alat berat atau material.</li>
+                        <li>Fungsi: Mempercepat proses pengeluaran barang impor tanpa harus membayar pajak di muka.</li>
+                        <li>Relevansi: Krusial bagi perusahaan yang terlibat dalam proyek impor alat berat atau material.</li>
                     </ul>
                 </div>
             </div>

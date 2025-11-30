@@ -6,7 +6,7 @@
             Pilih Paket Jaminan yang Tepat
         </h1>
         <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-            PT Savanaah Jaya Utama menyediakan paket Surety Bond dan Garansi Bank yang disesuaikan dengan skala proyek dan kebutuhan finansial Anda.
+            PT Savannah Jaya Utama menyediakan paket Surety Bond dan Garansi Bank yang disesuaikan dengan skala proyek dan kebutuhan finansial Anda.
         </p>
     </div>
 
