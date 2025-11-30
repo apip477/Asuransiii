@@ -23,7 +23,8 @@ Route::get('/about-us', function () {
     return view('about');
 })->name('about');
 Route::get('/produk', function () {
-    return view('produk');
+    $layanans = \App\Models\Layanan::all();
+    return view('produk', compact('layanans'));
 })->name('produk');
 Route::get('/layanan', function () {
     return view('layanan');
