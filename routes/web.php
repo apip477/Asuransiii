@@ -80,6 +80,8 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     // Rute Manajemen Mitra
     Route::resource('mitra', App\Http\Controllers\Admin\MitraController::class)->names('admin.mitra');
 
+    Route::resource('work', App\Http\Controllers\Admin\WorkController::class)->names('admin.work');
+
     Route::get('/admin/submissions', [AdminSubmissionController::class, 'index'])->name('admin.submissions.index');
 
 });

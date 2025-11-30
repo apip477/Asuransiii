@@ -20,7 +20,7 @@ class WorkController extends Controller
                     ->orderBy('created_at', 'desc')
                     ->get();
         
-        return view('admin.works.index', compact('works'));
+        return view('admin.tables.works.index', compact('works'));
     }
 
     /**
@@ -31,8 +31,8 @@ class WorkController extends Controller
         // Memuat relasi 'user' agar bisa menampilkan nama pemilik
         $work->load('user'); 
         
-        // Mengirim data ke view admin/works/show.blade.php
-        return view('admin.works.show', compact('work'));
+        // Mengirim data ke view admin/tables/works/show.blade.php
+        return view('admin.tables.works.show', compact('work'));
     }
 
     /**
@@ -69,7 +69,7 @@ class WorkController extends Controller
 
     public function create()
     {
-        // View form untuk membuat pengajuan baru (Admin tidak perlu)
+        return view('admin.mitra.create');
     }
 
     public function store(Request $request)
@@ -79,7 +79,7 @@ class WorkController extends Controller
 
     public function edit(Work $work)
     {
-        // View form edit
+        return view('admin.works.edit', compact('work'));
     }
     
     public function destroy(Work $work)
