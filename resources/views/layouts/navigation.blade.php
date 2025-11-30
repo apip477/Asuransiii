@@ -6,18 +6,32 @@
             
             {{-- Container Pill Navy --}}
             <div class="flex items-center justify-between gap-3 bg-indigo-900 text-white rounded-full shadow-2xl px-4 py-2.5 border border-indigo-800"> 
-                
-                <a href="{{ route('home') }}" class="flex items-center gap-2 flex-shrink-0 hover:opacity-80 transition">
-                    <img src="{{ asset('images/svnh.png') }}" alt="Savannah Jaya Logo" class="h-8 w-auto">
+                {{-- LOGO SAVANNAH (Sisi Kiri) --}}
+                <a href="/" class="flex items-center gap-2 flex-shrink-0 hover:opacity-80 transition mr-8">
+
+            <div class="bg-white px-2 py-1.5 rounded-full flex items-center justify-center shadow-md">
+    <img src="{{ asset('images/svnh.png') }}" alt="Savannah Logo" class="h-7 w-auto">
+</div>
                 </a>
 
-                {{-- MENU UTAMA (Bahasa Indonesia) --}}
-                <div class="flex items-center gap-3 text-sm font-medium"> 
-                    <a href="{{ route('home') }}" class="whitespace-nowrap hover:text-indigo-200 transition {{ request()->routeIs('home') ? 'text-white font-bold' : 'text-indigo-100' }}">Home</a>
-                    <a href="{{ route('produk') }}" class="whitespace-nowrap text-indigo-100 hover:text-white transition {{ request()->routeIs('produk') ? 'text-white font-bold' : 'text-indigo-100' }}">Produk</a>
-                    <a href="{{ route('layanan') }}" class="whitespace-nowrap text-indigo-100 hover:text-white transition">Klaim</a>
-                    <a href="{{ route('contact') }}" class="whitespace-nowrap text-indigo-100 hover:text-white transition">Contact</a>
-                    <a href="{{ route('about') }}" class="whitespace-nowrap hover:text-white transition {{ request()->routeIs('about') ? 'text-white font-bold' : 'text-indigo-100' }}">About Us</a>
+                {{-- gap-6 diperkecil jadi gap-5 agar muat --}}
+                <div class="flex items-center gap-5 text-sm font-medium">
+                    <a href="{{ route('home') }}" class="whitespace-nowrap hover:text-indigo-200 transition {{ request()->routeIs('home') ? 'text-white font-bold' : 'text-indigo-100' }}">
+                        Home
+                    </a>
+                    <a href="{{ route('produk') }}" class="whitespace-nowrap text-indigo-100 hover:text-white transition">
+                        Product
+                    </a>
+                    <a href="#" class="whitespace-nowrap text-indigo-100 hover:text-white transition">
+                        Claim
+                    </a>
+                    <a href="{{ route('contact') }}" class="whitespace-nowrap text-indigo-100 hover:text-white transition">
+                        Contact
+                    </a>
+                    {{-- Tambah whitespace-nowrap agar "About Us" sejajar --}}
+                    <a href="{{ route('about') }}" class="whitespace-nowrap hover:text-white transition {{ request()->routeIs('about') ? 'text-white font-bold' : 'text-indigo-100' }}">
+                        About Us
+                    </a>
                 </div>
 
                 {{-- LOGIN / ALAMAT (Sisi Kanan) --}}
@@ -55,11 +69,18 @@
         <div class="pt-2 pb-4 space-y-1 px-4">
             {{-- MENU MOBILE INDONESIA --}}
             <a href="{{ route('home') }}" class="block py-2.5 px-3 rounded-lg hover:bg-indigo-50 text-indigo-900 font-medium">Home</a>
+<<<<<<< HEAD
+            <a href="{{ route('produk') }}" class="block py-2.5 px-3 rounded-lg hover:bg-indigo-50 text-gray-600">Product</a>
+            <a href="#" class="block py-2.5 px-3 rounded-lg hover:bg-indigo-50 text-gray-600">Claim</a>
+            <a href="#" class="block py-2.5 px-3 rounded-lg hover:bg-indigo-50 text-gray-600">Contact</a>
+            <a href="#" class="block py-2.5 px-3 rounded-lg hover:bg-indigo-50 text-gray-600">About Us</a>
+=======
             <a href="{{ route('produk') }}" class="block py-2.5 px-3 rounded-lg hover:bg-indigo-50 text-gray-600">Produk</a>
             <a href="{{ route('layanan') }}" class="block py-2.5 px-3 rounded-lg hover:bg-indigo-50 text-gray-600">Klaim</a>
             <a href="{{ route('contact') }}" class="block py-2.5 px-3 rounded-lg hover:bg-indigo-50 text-gray-600">Contact</a>
             <a href="{{ route('about') }}" class="block py-2.5 px-3 rounded-lg hover:bg-indigo-50 text-gray-600">About Us</a>
 
+>>>>>>> 49b645d953fbd4c398df8453a407d60e5dbb9b38
             <div class="border-t border-gray-100 my-2"></div>
             @auth
                 <a href="{{ route('dashboard') }}" class="block py-2 px-3 text-gray-700">Dashboard</a>
