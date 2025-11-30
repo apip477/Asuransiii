@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\WorkController;
 use App\Http\Controllers\User\SubmissionController;
+use App\Http\Controllers\LeadController;
 use App\Http\Controllers\Admin\SubmissionController as AdminSubmissionController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Work;
@@ -26,6 +27,11 @@ Route::get('/produk', function () {
     $layanans = \App\Models\Layanan::all();
     return view('produk', compact('layanans'));
 })->name('produk');
+// --- RUTE BARU: PRE-REGISTRATION FORM ---
+Route::get('/pre-register', function () {
+    return view('pre-register');
+})->name('pre.register.form');
+Route::post('/lead', [LeadController::class, 'store'])->name('lead.store');
 Route::get('/layanan', function () {
     return view('layanan');
 })->name('layanan');
@@ -38,6 +44,9 @@ Route::get('/dashboard', function () {
 
 // 3. RUTE USER (PROFIL & SUBMISSION)
 Route::middleware('auth')->group(function () {
+    Route::get('/submission/success', function () {
+    return view('user.submission.success');
+})->middleware(['auth'])->name('submission.success');
     
     // Rute Profil
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

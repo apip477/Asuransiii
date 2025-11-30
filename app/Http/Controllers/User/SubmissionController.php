@@ -4,10 +4,10 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Work; // Wajib di-import: Model untuk menyimpan data
-use Illuminate\Support\Facades\Auth; // Wajib di-import: Untuk mendapatkan ID user yang login
+use App\Models\Work; 
+use Illuminate\Support\Facades\Auth; 
 use Illuminate\Http\RedirectResponse; 
-use Illuminate\Support\Facades\Storage; // Wajib di-import: Untuk file storage
+use Illuminate\Support\Facades\Storage; 
 
 class SubmissionController extends Controller
 {
@@ -28,25 +28,23 @@ class SubmissionController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string|max:1000',
-            // File: wajib ada, format PDF/ZIP/JPG/PNG, max 5MB (5120 KB)
             'file_path' => 'required|file|mimes:pdf,zip,jpg,png|max:5120', 
         ]);
 
         // 2. Simpan File ke storage/app/public/works/
-        // Menggunakan disk 'public' dan folder 'works'
         $filePath = $request->file('file_path')->store('works', 'public'); 
 
-        // 3. Simpan Data ke Database (Tabel 'works')
+        // 3. Simpan Data ke Database
         Work::create([
-            'user_id' => Auth::id(), // Otomatis ambil ID user yang sedang login
+            'user_id' => Auth::id(), 
             'title' => $validated['title'],
             'description' => $validated['description'],
-            'file_path' => $filePath, // Simpan path file
-            'status' => 'pending', // Status awal: pending
+            'file_path' => $filePath, 
+            'status' => 'pending', 
         ]);
 
-        // 4. Redirect kembali ke dashboard user dengan pesan sukses
-        return redirect()->route('dashboard')
-                         ->with('success', 'Pengajuan jaminan Anda berhasil dikirim dan menunggu verifikasi Admin.');
+        // 4. REDIRECT AKHIR: Arahkan ke halaman konfirmasi yang jelas
+        return redirect()->route('submission.success') 
+                         ->with('success', 'Pengajuan jaminan Anda berhasil dikirim.');
     }
 }

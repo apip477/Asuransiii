@@ -23,26 +23,19 @@
                 {{-- LOGIN / ALAMAT (Sisi Kanan) --}}
                 <div class="ml-2"> 
                     @auth
-                        {{-- SUDAH LOGIN --}}
-                        <div class="relative" x-data="{ dropdownOpen: false }">
-                            <button @click="dropdownOpen = ! dropdownOpen" class="flex items-center gap-2 bg-indigo-800 hover:bg-indigo-700 text-white rounded-full pl-4 pr-2 py-1.5 text-xs font-bold transition-colors whitespace-nowrap">
-                                <span>{{ Auth::user()->name }}</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-                            </button>
-                            <div x-show="dropdownOpen" @click.away="dropdownOpen = false" class="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-xl py-2 text-gray-700 z-50 overflow-hidden" style="display: none;">
-                                <a href="{{ route('dashboard') }}" class="block px-4 py-2 text-sm hover:bg-indigo-50">Dashboard</a>
-                                <form method="POST" action="{{ route('logout') }}">
-                                    @csrf
-                                    <button type="submit" class="block w-full text-left px-4 py-2 text-sm hover:bg-red-50 text-red-600">Log Out</button>
-                                </form>
-                            </div>
-                        </div>
-                    @else
-                        {{-- BUTTON ALAMAT / MAPS (Diambil dari remote, tapi teks diubah ke Indonesia) --}}
-                        <a href="https://maps.google.com/?cid=10489208401089106474&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" class="bg-white text-indigo-900 px-5 py-1.5 rounded-full text-sm font-bold hover:bg-indigo-50 transition shadow-md whitespace-nowrap">
-                            Alamat
-                        </a>
-                    @endauth
+    {{-- SUDAH LOGIN: Tombol Log Out Sederhana (Hanya Tulisan Log Out) --}}
+    <form method="POST" action="{{ route('logout') }}" class="inline-flex">
+        @csrf
+        <button type="submit" class="bg-indigo-800 hover:bg-indigo-700 text-white rounded-full px-4 py-1.5 text-xs font-bold transition-colors whitespace-nowrap">
+            Log Out
+        </button>
+    </form>
+@else
+    {{-- BELUM LOGIN: Tombol Alamat (Maps) --}}
+    <a href="{{ route('login') }}" class="bg-white text-indigo-900 px-5 py-1.5 rounded-full text-sm font-bold hover:bg-indigo-50 transition shadow-md whitespace-nowrap">
+        Alamat
+    </a>
+@endauth
                 </div>
             </div>
         </div>
