@@ -29,7 +29,7 @@
 
             <div class="flex flex-col sm:flex-row justify-center gap-4">
                 {{-- Tombol Daftar --}}
-                <a href="{{ route('register') }}"
+                <a href="{{ route('pre.register.form') }}"
                     class="bg-indigo-900 text-white px-8 py-4 rounded-full font-bold shadow-lg hover:bg-indigo-800 transition transform hover:-translate-y-1">
                     Daftar Sekarang
                 </a>
