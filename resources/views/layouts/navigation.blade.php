@@ -18,7 +18,7 @@
                     <a href="{{ route('home') }}" class="whitespace-nowrap hover:text-indigo-200 transition {{ request()->routeIs('home') ? 'text-white font-bold' : 'text-indigo-100' }}">
                         Home
                     </a>
-                    <a href="#" class="whitespace-nowrap text-indigo-100 hover:text-white transition">
+                    <a href="{{ route('produk') }}" class="whitespace-nowrap text-indigo-100 hover:text-white transition">
                         Product
                     </a>
                     <a href="#" class="whitespace-nowrap text-indigo-100 hover:text-white transition">
@@ -78,7 +78,7 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden md:hidden bg-white border-t border-gray-200 fixed w-full z-40 shadow-lg">
         <div class="pt-2 pb-4 space-y-1 px-4">
             <a href="{{ route('home') }}" class="block py-2.5 px-3 rounded-lg hover:bg-indigo-50 text-indigo-900 font-medium">Home</a>
-            <a href="#" class="block py-2.5 px-3 rounded-lg hover:bg-indigo-50 text-gray-600">Product</a>
+            <a href="{{ route('produk') }}" class="block py-2.5 px-3 rounded-lg hover:bg-indigo-50 text-gray-600">Product</a>
             <a href="#" class="block py-2.5 px-3 rounded-lg hover:bg-indigo-50 text-gray-600">Claim</a>
             <a href="#" class="block py-2.5 px-3 rounded-lg hover:bg-indigo-50 text-gray-600">Contact</a>
             <a href="#" class="block py-2.5 px-3 rounded-lg hover:bg-indigo-50 text-gray-600">About Us</a>
