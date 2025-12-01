@@ -63,20 +63,45 @@
                     </div>
         
                     <div class="bg-white p-8 rounded-lg shadow-lg border border-gray-200">
-                        <form action="#" method="POST">
-                            @csrf 
+                        @if(session('success'))
+                            <div class="mb-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+
+                        @if($errors->any())
+                            <div class="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
+                                <ul>
+                                    @foreach($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
+                        <form action="{{ route('contact.store') }}" method="POST">
+                            @csrf
                             <div class="grid grid-cols-1 gap-6">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700">Nama Lengkap</label>
-                                    <input type="text" class="mt-1 block w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                                    <input type="text" name="name" value="{{ old('name') }}" class="mt-1 block w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" required>
+                                    @error('name')
+                                        <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                                    @enderror
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700">Email</label>
-                                    <input type="email" class="mt-1 block w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                                    <input type="email" name="email" value="{{ old('email') }}" class="mt-1 block w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" required>
+                                    @error('email')
+                                        <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                                    @enderror
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700">Pesan</label>
-                                    <textarea rows="4" class="mt-1 block w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"></textarea>
+                                    <textarea rows="4" name="message" class="mt-1 block w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" required>{{ old('message') }}</textarea>
+                                    @error('message')
+                                        <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                                    @enderror
                                 </div>
                                 <button type="submit" class="w-full py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700">
                                     Kirim

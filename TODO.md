@@ -1,24 +1,10 @@
-# TODO: Modify Produk View to Display Layanan Data
+# TODO: Fix Contact Form Submission and Add Admin Contact Management
 
 ## Tasks
-- [ ] Modify routes/web.php to fetch layanan data for /produk route
-- [ ] Update resources/views/produk.blade.php to display layanan (photo, name, description)
-- [ ] Test the changes
-
-## Information Gathered
-- produk.blade.php currently shows static pricing packages
-- Layanan model has name, description, image fields
-- Admin layanan controller manages layanan data
-- Route for /produk is a simple view return
-
-## Plan
-- Change /produk route to fetch all layanan and pass to view
-- Add a new section in produk.blade.php to display layanan data in cards or grid
-- Use asset('storage/' . $layanan->image) for images
-
-## Dependent Files
-- routes/web.php
-- resources/views/produk.blade.php
-
-## Followup Steps
-- [x] Run the application and check /produk page
+- [x] Move POST route for contact submission to public routes in routes/web.php
+- [x] Add index method to ContactController for listing contacts
+- [x] Add admin route to view contacts in routes/web.php
+- [x] Create new view: resources/views/admin/contacts/index.blade.php
+- [x] Fix nested forms in resources/views/contact.blade.php
+- [ ] Test contact form submission
+- [ ] Verify submitted messages appear in admin panel

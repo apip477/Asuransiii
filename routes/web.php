@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\Admin\WorkController;
 use App\Http\Controllers\User\SubmissionController;
 use App\Http\Controllers\LeadController;
 use App\Http\Controllers\Admin\SubmissionController as AdminSubmissionController;
+use App\Http\Controllers\Admin\WorkController;
+use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\ContactController as AdminContactController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Work;
 use App\Models\User;
@@ -16,9 +18,11 @@ Route::get('/', function () {
     $mitras = Mitra::all();
     return view('home', compact('mitras'));
 })->name('home');
+// Public contact form
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
 Route::get('/about-us', function () {
     return view('about');
@@ -88,8 +92,18 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
 
     // Rute Manajemen Mitra
     Route::resource('mitra', App\Http\Controllers\Admin\MitraController::class)->names('admin.mitra');
-
+    // Rute Manajmen work
     Route::resource('work', App\Http\Controllers\Admin\WorkController::class)->names('admin.work');
+
+
+// Rute contact
+    Route::get('/contacts', [ContactController::class, 'index'])->name('admin.contacts.index');
+    Route::patch('/contacts/{contact}/mark-read', [ContactController::class, 'markRead'])->name('admin.contacts.mark-read');
+    Route::delete('/contacts/{contact}', [ContactController::class, 'destroy'])->name('admin.contacts.destroy');
+
+    Route::get('/contacts', [AdminContactController::class, 'index'])->name('admin.contacts.index'); 
+
+
 
     Route::get('/admin/submissions', [AdminSubmissionController::class, 'index'])->name('admin.submissions.index');
 
