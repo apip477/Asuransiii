@@ -1,6 +1,6 @@
-{{-- resources/views/admin/mitra/create.blade.php --}}
+@extends('admin.layouts.app')
 
-<x-layouts.admin-layout>
+@section('content')
     <x-slot name="header">
         {{ __('Tambah Mitra Penjamin Baru') }}
     </x-slot>
@@ -49,4 +49,5 @@
             </div>
         </div>
     </div>
-</x-layouts.admin-layout>
+@endsection
+

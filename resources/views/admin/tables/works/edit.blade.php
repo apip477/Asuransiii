@@ -1,6 +1,6 @@
-{{-- resources/views/admin/works/edit.blade.php --}}
+@extends('admin.layouts.app')
 
-<x-layouts.admin-layout>
+@section('content')
     <x-slot name="header">
         {{ __('Edit Pengajuan Jaminan') }}
     </x-slot>
@@ -41,4 +41,4 @@
             </div>
         </div>
     </div>
-</x-layouts.admin-layout>
+@endsection

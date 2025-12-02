@@ -1,5 +1,6 @@
-{{-- resources/views/admin/works/show.blade.php --}}
-<x-layouts.admin-layout>
+@extends('admin.layouts.app')
+
+@section('content')
     <x-slot name="header">
         {{ __('Verifikasi Pengajuan Jaminan') }}
     </x-slot>
@@ -76,4 +77,4 @@
             </div>
         </div>
     </div>
-</x-layouts.admin-layout>
+@endsection

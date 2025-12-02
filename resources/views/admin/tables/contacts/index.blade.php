@@ -1,5 +1,6 @@
-{{-- resources/views/admin/contacts/index.blade.php --}}
-<x-layouts.admin-layout>
+@extends('admin.layouts.app')
+
+@section('content')
     <x-slot name="header">
         {{ __('Pesan Masuk & Konsultasi') }}
     </x-slot>
@@ -52,4 +53,4 @@
             </div>
         </div>
     </div>
-</x-admin-layout>
+@endsection
