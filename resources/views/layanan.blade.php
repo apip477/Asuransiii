@@ -3,17 +3,15 @@
     
     {{-- HEADER PAGE --}}
     <div class="bg-indigo-900 pt-32 pb-16 text-center">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 class="text-4xl font-extrabold text-white mb-3">
-                Jaminan & Bonds yang Kami Tawarkan
-            </h1>
-            <p class="text-xl text-indigo-200 max-w-3xl mx-auto">
-                Pelajari setiap jenis jaminan secara mendalam untuk memilih perlindungan finansial yang paling tepat bagi proyek Anda.
-            </p>
-        </div>
+        <h1 class="text-4xl font-extrabold text-white mb-3">
+            Jaminan & Bonds yang Kami Tawarkan
+        </h1>
+        <p class="text-indigo-200 max-w-3xl mx-auto">
+            Pelajari setiap jenis jaminan secara mendalam untuk memilih perlindungan finansial yang paling tepat bagi proyek Anda.
+        </p>
     </div>
 
-    {{-- SECTION DETAIL LAYANAN (4 BLOK UTAMA) --}}
+    {{-- SECTION DETAIL LAYANAN (4 BLOK) --}}
     <div class="bg-white py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
 
@@ -95,21 +93,6 @@
                 </div>
             </div>
 
-        </div>
-    </div>
-    
-    {{-- SECTION CTA PENUTUP --}}
-    <div class="bg-indigo-900 py-16">
-        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-            <h3 class="text-3xl font-extrabold text-white mb-4">
-                Siap Amankan Proyek Anda?
-            </h3>
-            <p class="text-indigo-200 mb-6">
-                Hubungi tim sales kami untuk negosiasi paket Enterprise atau konsultasi risiko gratis.
-            </p>
-            <a href="{{ route('contact') }}" class="bg-white text-indigo-900 px-8 py-3 rounded-full font-bold shadow-lg hover:bg-gray-200 transition">
-                Hubungi Kami Sekarang
-            </a>
         </div>
     </div>
 </x-app-layout>

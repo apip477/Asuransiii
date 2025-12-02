@@ -38,16 +38,11 @@
                 <div class="ml-2"> 
                     @auth
     {{-- SUDAH LOGIN: Tombol Log Out Sederhana (Hanya Tulisan Log Out) --}}
-    <form method="POST" action="{{ route('logout') }}" class="inline-flex">
-        @csrf
-        <button type="submit" class="bg-indigo-800 hover:bg-indigo-700 text-white rounded-full px-4 py-1.5 text-xs font-bold transition-colors whitespace-nowrap">
-            Log Out
-        </button>
-    </form>
+
 @else
     {{-- BELUM LOGIN: Tombol Alamat (Maps) --}}
-    <a href="{{ route('login') }}" class="bg-white text-indigo-900 px-5 py-1.5 rounded-full text-sm font-bold hover:bg-indigo-50 transition shadow-md whitespace-nowrap">
-        Alamat
+    <a href="https://www.google.com/maps/place/PT.+SAVANNAH+JAYA+UTAMA/@-6.231062,106.931833,16z/data=!4m6!3m5!1s0x2e698d003e313be1:0x9191277771f5922a!8m2!3d-6.2310619!4d106.9318333!16s%2Fg%2F11w3k7fw9_?hl=en-US&entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D" class="bg-white text-indigo-900 px-5 py-1.5 rounded-full text-sm font-bold hover:bg-indigo-50 transition shadow-md whitespace-nowrap">
+        Location
     </a>
 @endauth
                 </div>
