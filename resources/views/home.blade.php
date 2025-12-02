@@ -235,32 +235,4 @@
                         </div>
                     </div>
                 </div>
-
-                {{-- SECTION MITRA KAMI --}}
-                <div class="bg-white py-24">
-                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div class="text-center mb-16">
-                            <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
-                                Mitra Kami
-                            </h2>
-                            <div class="h-1.5 w-24 bg-indigo-900 mx-auto rounded-full"></div>
-                        </div>
-
-                        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
-                            @foreach ($mitras as $mitra)
-                                <div
-                                    class="p-4 md:p-7 bg-white rounded-lg shadow-sm border border-gray-100 flex items-center justify-center">
-                                    @if ($mitra->image)
-                                        <img src="{{ asset('storage/' . $mitra->image) }}"
-                                            alt="{{ $mitra->name }} Logo" class="w-24 h-auto object-contain">
-                                    @else
-                                        <span class="text-indigo-600 font-bold text-sm">{{ $mitra->name }}</span>
-                                    @endif
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-
-
 </x-app-layout>
