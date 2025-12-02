@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\ClaimController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\WorkController;
 use App\Http\Controllers\User\SubmissionController;
@@ -38,6 +38,8 @@ Route::get('/dashboard', function () {
 
 // 3. RUTE USER (PROFIL & SUBMISSION)
 Route::middleware('auth')->group(function () {
+    Route::get('/claim/create', [ClaimController::class, 'create'])->name('claim.create');
+    Route::post('/claim', [ClaimController::class, 'store'])->name('claim.store');
     
     // Rute Profil
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -22,7 +22,7 @@
                     <a href="{{ route('produk') }}" class="whitespace-nowrap text-indigo-100 hover:text-white transition">
                         Product
                     </a>
-                    <a href="#" class="whitespace-nowrap text-indigo-100 hover:text-white transition">
+                    <a href="{{ route('claim.create') }}" class="whitespace-nowrap text-indigo-100 hover:text-white transition">
                         Claim
                     </a>
                     <a href="{{ route('contact') }}" class="whitespace-nowrap text-indigo-100 hover:text-white transition">
@@ -83,7 +83,7 @@
             <a href="#" class="block py-2.5 px-3 rounded-lg hover:bg-indigo-50 text-gray-600">About Us</a>
 =======
             <a href="{{ route('produk') }}" class="block py-2.5 px-3 rounded-lg hover:bg-indigo-50 text-gray-600">Produk</a>
-            <a href="{{ route('layanan') }}" class="block py-2.5 px-3 rounded-lg hover:bg-indigo-50 text-gray-600">Klaim</a>
+            <a href="{{ route('layanan') }}" class="block py-2.5 px-3 rounded-lg hover:bg-indigo-50 text-gray-600">Claim</a>
             <a href="{{ route('contact') }}" class="block py-2.5 px-3 rounded-lg hover:bg-indigo-50 text-gray-600">Contact</a>
             <a href="{{ route('about') }}" class="block py-2.5 px-3 rounded-lg hover:bg-indigo-50 text-gray-600">About Us</a>
 
