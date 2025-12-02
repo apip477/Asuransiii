@@ -55,9 +55,14 @@
                             <a href="{{ route('admin.mitra.index') }}" class="flex items-center px-4 py-2 text-sm font-medium rounded-lg text-indigo-300 hover:bg-indigo-700 ml-4 transition duration-200">
                                 Mitra Penjamin
                             </a>
-                            {{-- <a href="#" class="flex items-center px-4 py-2 text-sm font-medium rounded-lg text-indigo-300 hover:bg-indigo-700 ml-4 transition duration-200">
-                                Manajemen Pengguna
-                            </a> --}}
+                             <a href="{{ route('admin.work.index') }}" class="flex items-center px-4 py-2 text-sm font-medium rounded-lg text-indigo-300 hover:bg-indigo-700 ml-4 transition duration-200">
+                                Work Management
+                            </a>
+                             <a href="{{ route('admin.contacts.index') }}" class="flex items-center px-4 py-2 text-sm font-medium rounded-lg text-indigo-300 hover:bg-indigo-700 ml-4 transition duration-200">
+                                Contact Messages
+                            </a>
+
+
                         </div>
                     </div>
                     
