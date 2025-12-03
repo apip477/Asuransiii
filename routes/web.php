@@ -46,6 +46,7 @@ Route::get('/pre-register', function () {
 Route::post('/lead', [LeadController::class, 'store'])->name('lead.store');
 
 
+
 // 3. RUTE USER (PROFIL & SUBMISSION)
 Route::middleware('auth')->group(function () {
 
@@ -54,6 +55,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/submission/success', function () {
     return view('user.submission.success');
 })->middleware(['auth'])->name('submission.success');
+});
+
+
+
 
 
 
