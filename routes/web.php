@@ -48,14 +48,14 @@ Route::get('/dashboard', function () {
 
 // 3. RUTE USER (PROFIL & SUBMISSION)
 Route::middleware('auth')->group(function () {
-<<<<<<< HEAD
+
     Route::get('/claim/create', [ClaimController::class, 'create'])->name('claim.create');
     Route::post('/claim', [ClaimController::class, 'store'])->name('claim.store');
 =======
     Route::get('/submission/success', function () {
     return view('user.submission.success');
 })->middleware(['auth'])->name('submission.success');
->>>>>>> 5b85b70accc5a5d7807551a97b5675a813e60ba6
+
     
     // Rute Profil
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
