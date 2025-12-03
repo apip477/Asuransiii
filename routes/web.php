@@ -45,6 +45,7 @@ Route::get('/pre-register', function () {
 })->name('pre.register.form');
 Route::post('/lead', [LeadController::class, 'store'])->name('lead.store');
 
+
 // 3. RUTE USER (PROFIL & SUBMISSION)
 Route::middleware('auth')->group(function () {
 
