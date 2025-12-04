@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\MitraController;
 use App\Http\Controllers\Admin\ProductController; 
 use App\Http\Controllers\Admin\ContactController as AdminContactController; // Alias Admin Contact
 use App\Http\Controllers\Admin\LayananController; 
+use App\Http\Controllers\Admin\ClaimController as AdminClaimController;;
 use Illuminate\Support\Facades\Route;
 use App\Models\Work;
 use App\Models\User;
@@ -120,6 +121,9 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::resource('mitra', App\Http\Controllers\Admin\MitraController::class)->names('admin.mitra');
 
     Route::resource('work', App\Http\Controllers\Admin\WorkController::class)->names('admin.work');
+
+    Route::delete('/contacts/{contact}', [AdminContactController::class, 'destroy'])->name('admin.contacts.destroy');
+    Route::resource('claims', ClaimController::class)->names('admin.claims');
 });
 
 

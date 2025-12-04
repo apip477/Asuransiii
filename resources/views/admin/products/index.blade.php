@@ -1,13 +1,10 @@
-{{-- resources/views/admin/products/index.blade.php --}}
+@extends('admin.layouts.app')
 
-<x-layouts.admin-layout>
-    <x-slot name="header">
-        {{ __('Manajemen Produk Jaminan') }}
-    </x-slot>
 
+@section('content')
     <div class="py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            
+
             {{-- Pesan Sukses (Setelah Tambah/Edit) --}}
             @if (session('success'))
                 <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">
@@ -17,7 +14,7 @@
 
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    
+
                     <div class="flex justify-between items-center mb-6 border-b pb-3">
                         <h3 class="text-2xl font-extrabold text-indigo-700">Daftar Produk </h3>
                         {{-- Tombol Tambah Produk --}}
@@ -73,4 +70,4 @@
             </div>
         </div>
     </div>
-</x-layouts.admin-layout>
+@endsection

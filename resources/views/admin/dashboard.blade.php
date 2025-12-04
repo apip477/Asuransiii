@@ -34,6 +34,8 @@
                 Manage Work
             </a>  </a> <a href="{{ route('admin.contacts.index') }}" class="bg-purple-600 text-white p-4 rounded hover:bg-purple-700">
                 Contact Messages
+            </a>  <a href="{{ route('admin.products.index') }}" class="bg-red-600 text-white p-4 rounded hover:bg-red-700">
+                Product Management
             </a>
             
     </div>

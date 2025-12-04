@@ -87,7 +87,7 @@
                     {{-- Tombol Submit --}}
                     <div class="pt-6">
                         <button type="submit" class="w-full py-3 bg-indigo-600 border border-transparent rounded-lg font-semibold text-white tracking-wide hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition ease-in-out duration-150">
-                            AJUKAN CLAIM SEKARANG
+                            Ajukan Claim Sekarang
                         </button>
                     </div>
                 </form>

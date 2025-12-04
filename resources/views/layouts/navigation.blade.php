@@ -48,7 +48,7 @@
 @else
     {{-- BELUM LOGIN: Tombol Alamat (Maps) --}}
     <a href="{{ route('login') }}" class="bg-white text-indigo-900 px-5 py-1.5 rounded-full text-sm font-bold hover:bg-indigo-50 transition shadow-md whitespace-nowrap">
-        Alamat
+        Login
 </a>
 @endauth
                 </div>
