@@ -18,7 +18,8 @@ use App\Models\Product;
 // 1. JALUR UMUM (Publik)
 Route::get('/', function () {
     $mitras = Mitra::all();
-    return view('home', compact('mitras'));
+     $banks = Mitra::where('category', 'bank')->get();
+    return view('home', compact('mitras', 'banks'));
 })->name('home');
 // Public contact form
 Route::get('/contact', function () {
