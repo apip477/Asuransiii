@@ -36,6 +36,8 @@
                 Contact Messages
             </a>  <a href="{{ route('admin.products.index') }}" class="bg-red-600 text-white p-4 rounded hover:bg-red-700">
                 Product Management
+            </a> <a href="{{ route('admin.claims.index') }}" class="bg-orange-600 text-white p-4 rounded hover:bg-orange-700">
+                Claim Management
             </a>
             
     </div>

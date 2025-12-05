@@ -64,6 +64,9 @@
                               <a href="{{ route('admin.products.index') }}" class="flex items-center px-4 py-2 text-sm font-medium rounded-lg text-indigo-300 hover:bg-indigo-700 ml-4 transition duration-200">
                                 Product Management
                             </a>
+                             <a href="{{ route('admin.claims.index') }}" class="flex items-center px-4 py-2 text-sm font-medium rounded-lg text-indigo-300 hover:bg-indigo-700 ml-4 transition duration-200">
+                                Claim Management
+                            </a>
 
 
 

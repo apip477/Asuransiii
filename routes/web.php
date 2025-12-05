@@ -1,20 +1,19 @@
 <?php
-use App\Http\Controllers\ClaimController;
+
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\User\SubmissionController;
 use App\Http\Controllers\LeadController;
-use App\Http\Controllers\ContactController; // Controller Publik (Hanya untuk store)
+use App\Http\Controllers\ContactController; 
 use App\Http\Controllers\Admin\WorkController; 
 use App\Http\Controllers\Admin\MitraController; 
 use App\Http\Controllers\Admin\ProductController; 
-use App\Http\Controllers\Admin\ContactController as AdminContactController; // Alias Admin Contact
 use App\Http\Controllers\Admin\LayananController; 
-use App\Http\Controllers\Admin\ClaimController as AdminClaimController;;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\ClaimController as AdminClaimController; // Alias Admin Claim
+use App\Http\Controllers\Admin\ContactController as AdminContactController; // Alias Admin Contact
+use App\Models\Product; // Pastikan Product diimpor
 use App\Models\Work;
 use App\Models\User;
 use App\Models\Mitra;
-use App\Models\Product;
 
 // 1. JALUR UMUM (Publik)
 Route::get('/', function () {
@@ -41,30 +40,12 @@ Route::get('/layanan', function () {
 })->name('layanan');
 
 // Pre-Registration Flow
-Route::get('/pre-register', function () {
-    return view('pre-register');
-})->name('pre.register.form');
+Route::get('/pre-register', [LeadController::class, 'create'])->name('pre.register.form');
 Route::post('/lead', [LeadController::class, 'store'])->name('lead.store');
 
 
-
-// 3. RUTE USER (PROFIL & SUBMISSION)
-Route::middleware('auth')->group(function () {
-
-    Route::get('/claim/create', [ClaimController::class, 'create'])->name('claim.create');
-    Route::post('/claim', [ClaimController::class, 'store'])->name('claim.store');
-    Route::get('/submission/success', function () {
-    return view('user.submission.success');
-})->middleware(['auth'])->name('submission.success');
-});
-
-
-
-
-
-
-// 2. JALUR KHUSUS USER (Wajib Login)
-Route::middleware(['auth', 'verified'])->group(function () {
+// 2. RUTE KHUSUS USER (Wajib Login)
+Route::middleware(['auth'])->group(function () {
     
     // User Dashboard & Profil
     Route::get('/dashboard', function () {
@@ -73,7 +54,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.delete');
     
     // Rute Submission User
     Route::prefix('user')->group(function () {
@@ -83,6 +64,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
             return view('user.submission.success');
         })->name('submission.success');
     });
+
+    // Rute Klaim User
+    Route::get('/claim/create', [App\Http\Controllers\ClaimController::class, 'create'])->name('claim.create');
+    Route::post('/claim', [App\Http\Controllers\ClaimController::class, 'store'])->name('claim.store');
+    Route::get('/claim/success', function () {
+        return view('claim-success');
+    })->name('claim.success');
+    
+    // Route::get('/submission/success', function () { return view('user.submission.success'); })->middleware(['auth'])->name('submission.success');
 });
 
 
@@ -99,31 +89,27 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
         return view('admin.dashboard', compact('worksCount', 'pendingCount', 'verifiedCount', 'userCount'));
     })->name('admin.dashboard');
 
-    // --- RUTE RESOURCE MANAJEMEN (HANYA SATU DEFINISI) ---
+    // --- RUTE RESOURCE MANAJEMEN ---
     
-    // 3A. Works Management (Verifikasi Pengajuan) - works.index, works.show, works.update
-    Route::resource('works', WorkController::class); 
+    // 3A. Works Management (Pengajuan)
+    Route::resource('works', WorkController::class)->names('admin.work');
 
     // 3B. Mitra Management
-    Route::resource('mitra', MitraController::class);
+    Route::resource('mitra', MitraController::class)->names('admin.mitra');
 
     // 3C. Product Management
     Route::resource('products', ProductController::class)->names('admin.products');
 
-    // 3D. Contacts (Pesan Masuk) - Menggunakan Controller Admin yang terpisah
-    // URL: /admin/contacts (admin.contacts.index)
-    Route::get('/contacts', [AdminContactController::class, 'index'])->name('admin.contacts.index'); 
-    // CATATAN: Hapus semua route PATCH/DELETE manual kontak, karena Anda harus menambahkannya melalui Route::resource jika dibutuhkan.
+    // 3D. Layanan Management
+    Route::resource('layanan', LayananController::class)->names('admin.layanan');
     
-    // CATATAN: Route 'layanan' dan 'work' yang tumpang tindih telah dihapus.
-    Route::resource('layanan', App\Http\Controllers\Admin\LayananController::class)->names('admin.layanan');
+    // 3E. Claims Management
+    Route::resource('claims', AdminClaimController::class)->names('admin.claims');
 
-    Route::resource('mitra', App\Http\Controllers\Admin\MitraController::class)->names('admin.mitra');
-
-    Route::resource('work', App\Http\Controllers\Admin\WorkController::class)->names('admin.work');
-
-    Route::delete('/contacts/{contact}', [AdminContactController::class, 'destroy'])->name('admin.contacts.destroy');
-    Route::resource('claims', ClaimController::class)->names('admin.claims');
+    // 3F. Contacts (Pesan Masuk)
+    Route::resource('contacts', AdminContactController::class)->names('admin.contacts')->only(['index', 'show', 'destroy', 'update']);
+    
+    // CATATAN: Semua route redundan telah dihapus.
 });
 
 
