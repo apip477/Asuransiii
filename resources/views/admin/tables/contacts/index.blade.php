@@ -1,9 +1,9 @@
 @extends('admin.layouts.app')
 
+@php
+    $header = __('Pesan Masuk & Konsultasi');
+@endphp
 @section('content')
-    <x-slot name="header">
-        {{ __('Pesan Masuk & Konsultasi') }}
-    </x-slot>
 
     <div class="py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">

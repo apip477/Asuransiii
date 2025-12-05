@@ -1,4 +1,3 @@
-{{-- resources/views/admin/products/edit.blade.php --}}
 
 @extends('admin.layouts.app')
 
