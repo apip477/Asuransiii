@@ -1,10 +1,10 @@
 <footer class="bg-gray-900 pt-16 pb-8">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
         
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             
             {{-- Kolom 1: PT Savannah Jaya Utama --}}
-            <div>
+            <div class="col-span-2 md:col-span-1">
                 <h4 class="text-lg font-bold mb-4 border-b border-indigo-500 pb-2">PT Savannah Jaya Utama</h4>
                 <p class="text-sm text-gray-400">
                     Mitra terpercaya Anda dalam penjaminan Surety Bond dan Bank Garansi untuk kepastian proyek.

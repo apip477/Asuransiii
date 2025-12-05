@@ -4,7 +4,7 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     
@@ -20,7 +20,6 @@
                             <p class="text-xs text-indigo-700 mt-1">
                                 Field Judul Proyek di bawah ini sudah terisi otomatis. Anda dapat memodifikasinya jika perlu.
                             </p>
-                            {{-- Input tersembunyi untuk menyimpan nama produk yang dipilih --}}
                             <input type="hidden" name="product_name" value="{{ $prefill_title }}">
                         </div>
                     @endif
@@ -40,9 +39,7 @@
                                 class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" 
                                 required 
                                 autofocus
-                                {{-- --- LOGIKA PRE-FILL DI SINI --- --}}
                                 value="{{ old('title', $prefill_title ?? '') }}" 
-                                {{-- ------------------------------ --}}
                             >
                             @error('title') <p class="text-sm text-red-600 mt-1">{{ $message }}</p> @enderror
                         </div>

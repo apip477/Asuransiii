@@ -6,25 +6,27 @@
     <title>Pengajuan Claim - Savannah Jaya</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <!-- Pastikan Anda memuat navigation.blade.php dan footer.blade.php -->
 </head>
 <body class="font-sans antialiased bg-gray-50">
 
     @include('layouts.navigation')
 
     {{-- HEADER PAGE --}}
-    <div class="bg-indigo-900 pt-32 pb-16 text-white text-center">
+    <!-- Optimasi: Mengurangi pt-32 di mobile, menggunakan pt-20 untuk lebih ringkas, pt-32 di desktop -->
+    <div class="bg-indigo-900 pt-20 md:pt-32 pb-16 text-white text-center">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 class="text-3xl font-extrabold mb-3">
+            <h1 class="text-3xl lg:text-4xl font-extrabold mb-3">
                 Formulir Pengajuan Claim
             </h1>
-            <p class="text-xl text-indigo-200">
+            <p class="text-base md:text-xl text-indigo-200">
                 Mohon isi data insiden dan lampirkan semua dokumen yang diperlukan dengan lengkap.
             </p>
         </div>
     </div>
 
     {{-- FORM CONTENT --}}
-    <div class="bg-gray-50 py-20">
+    <div class="bg-gray-50 py-12 md:py-20">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="bg-white p-6 md:p-10 rounded-xl shadow-2xl border border-gray-200">
 
@@ -51,7 +53,8 @@
 
                     <div>
                         <label for="policy_number" class="block font-medium text-sm text-gray-700 mb-1">Nomor Polis/Kontrak</label>
-                        <input id="policy_number" type="text" name="policy_number" value="{{ old('policy_number') }}" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 transition" placeholder="Contoh: SB-PTABC-2025" />
+                        <!-- Pastikan input memiliki kelas form default untuk konsistensi -->
+                        <input id="policy_number" type="text" name="policy_number" value="{{ old('policy_number') }}" required class="block w-full rounded-lg shadow-sm border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 transition" placeholder="Contoh: SB-PTABC-2025" />
                         @error('policy_number')
                             <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
                         @enderror
@@ -59,7 +62,8 @@
 
                     <div>
                         <label for="claim_date" class="block font-medium text-sm text-gray-700 mb-1">Tanggal Kejadian</label>
-                        <input id="claim_date" type="date" name="claim_date" value="{{ old('claim_date') }}" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 transition" />
+                        <!-- Pastikan input memiliki kelas form default untuk konsistensi -->
+                        <input id="claim_date" type="date" name="claim_date" value="{{ old('claim_date') }}" required class="block w-full rounded-lg shadow-sm border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 transition" />
                         @error('claim_date')
                             <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
                         @enderror
@@ -70,7 +74,8 @@
 
                     <div>
                         <label for="location" class="block font-medium text-sm text-gray-700 mb-1">Lokasi Kejadian</label>
-                        <input id="location" type="text" name="location" value="{{ old('location') }}" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 transition" placeholder="Alamat lengkap lokasi kerugian" />
+                        <!-- Pastikan input memiliki kelas form default untuk konsistensi -->
+                        <input id="location" type="text" name="location" value="{{ old('location') }}" required class="block w-full rounded-lg shadow-sm border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 transition" placeholder="Alamat lengkap lokasi kerugian" />
                         @error('location')
                             <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
                         @enderror
@@ -78,7 +83,8 @@
 
                     <div>
                         <label for="description" class="block font-medium text-sm text-gray-700 mb-1">Kronologi Singkat</label>
-                        <textarea id="description" name="description" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 transition" placeholder="Jelaskan secara singkat bagaimana insiden terjadi...">{{ old('description') }}</textarea>
+                        <!-- Pastikan input memiliki kelas form default untuk konsistensi -->
+                        <textarea id="description" name="description" rows="4" required class="block w-full rounded-lg shadow-sm border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 transition" placeholder="Jelaskan secara singkat bagaimana insiden terjadi...">{{ old('description') }}</textarea>
                         @error('description')
                             <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
                         @enderror
