@@ -75,16 +75,6 @@
             <a href="#" class="block py-2.5 px-3 rounded-lg hover:bg-indigo-50 text-gray-600">Claim</a>
             <a href="#" class="block py-2.5 px-3 rounded-lg hover:bg-indigo-50 text-gray-600">Contact</a>
             <a href="#" class="block py-2.5 px-3 rounded-lg hover:bg-indigo-50 text-gray-600">About Us</a>
-<<<<<<< HEAD
-=======
-            <a href="{{ route('produk') }}" class="block py-2.5 px-3 rounded-lg hover:bg-indigo-50 text-gray-600">Produk</a>
-            <a href="{{ route('layanan') }}" class="block py-2.5 px-3 rounded-lg hover:bg-indigo-50 text-gray-600">Claim</a>
-            <a href="{{ route('contact') }}" class="block py-2.5 px-3 rounded-lg hover:bg-indigo-50 text-gray-600">Contact</a>
-            <a href="{{ route('about') }}" class="block py-2.5 px-3 rounded-lg hover:bg-indigo-50 text-gray-600">About Us</a>
-
->>>>>>> 49b645d953fbd4c398df8453a407d60e5dbb9b38
-=======
->>>>>>> 5b85b70accc5a5d7807551a97b5675a813e60ba6
             <div class="border-t border-gray-100 my-2"></div>
             @auth
                 <a href="{{ route('dashboard') }}" class="block py-2 px-3 text-gray-700">Dashboard</a>

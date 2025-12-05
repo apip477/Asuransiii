@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Claim; // PENTING: Panggil Model Claim
+use App\Models\Claim; 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth; // PENTING: Untuk mengetahui user yang sedang login
+use Illuminate\Support\Facades\Auth; 
+use Illuminate\Http\RedirectResponse; 
+use Illuminate\Support\Facades\Storage; // Wajib di-import
 
 class ClaimController extends Controller
 {
@@ -20,36 +22,44 @@ class ClaimController extends Controller
     /**
      * Proses pengiriman data formulir klaim.
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse // Wajib tambahkan tipe kembalian
     {
         // 1. VALIDASI DATA
-        $request->validate([
+        $validated = $request->validate([
             'policy_number' => 'required|string|max:255',
             'claim_date' => 'required|date',
             'location' => 'required|string',
             'description' => 'required|string',
+            
             // Validasi File: Wajib ada, harus file, format PDF/JPG/PNG, max 5MB
+            // Kita akan menyimpan dua jenis dokumen
             'document_contract' => 'required|file|mimes:pdf,jpg,png|max:5000', 
             'document_loss' => 'required|file|mimes:pdf,jpg,png|max:5000',
         ]);
 
         // 2. UPLOAD FILE KE STORAGE
-        // File akan disimpan di folder storage/app/public/claim_documents/...
+        // Pastikan Anda sudah menjalankan php artisan storage:link
         $contractPath = $request->file('document_contract')->store('claim_documents/contracts', 'public');
         $lossPath = $request->file('document_loss')->store('claim_documents/losses', 'public');
 
         // 3. SIMPAN DATA KLAIM KE DATABASE
         Claim::create([
-            'user_id' => Auth::id(), // ID user yang sedang login otomatis
+            'user_id' => Auth::id(), 
             'policy_number' => $request->policy_number,
             'claim_date' => $request->claim_date,
             'location' => $request->location,
             'description' => $request->description,
             'document_contract_path' => $contractPath, // Menyimpan jalur filenya
             'document_loss_path' => $lossPath,
+            'status' => 'pending', // Status awal
         ]);
 
         // 4. REDIRECT DAN PESAN SUKSES
-        return view('claim-success');
+        // Mengarahkan ke halaman sukses
+        return redirect()->route('claim.success')
+                         ->with('success', 'Pengajuan Klaim berhasil diajukan dan akan segera diproses.');
     }
+    
+    // Method show, index, edit, update, destroy di sini
+    // Dibiarkan kosong karena Admin menggunakan Admin\ClaimController
 }
