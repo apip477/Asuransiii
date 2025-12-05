@@ -18,19 +18,14 @@
                 <div class="flex items-center gap-5 text-sm font-medium">
                     <a href="{{ route('home') }}" class="whitespace-nowrap hover:text-indigo-200 transition {{ request()->routeIs('home') ? 'text-white font-bold' : 'text-indigo-100' }}">
                         Home
-                    </a>
-                    <a href="{{ route('produk') }}" class="whitespace-nowrap text-indigo-100 hover:text-white transition">
-                        Product
-                    </a>
-                    <a href="{{ route('claim.create') }}" class="whitespace-nowrap text-indigo-100 hover:text-white transition">
-                        Claim
-                    </a>
-                    <a href="{{ route('contact') }}" class="whitespace-nowrap text-indigo-100 hover:text-white transition">
-                        Contact
-                    </a>
-                    {{-- Tambah whitespace-nowrap agar "About Us" sejajar --}}
                     <a href="{{ route('about') }}" class="whitespace-nowrap hover:text-white transition {{ request()->routeIs('about') ? 'text-white font-bold' : 'text-indigo-100' }}">
                         About Us
+                    <a href="{{ route('produk') }}" class="whitespace-nowrap text-indigo-100 hover:text-white transition {{ request()->routeIs('home') ? 'text-white font-bold' : 'text-indigo-100' }}">
+                        Product 
+                     <a href="{{ route('claim.create') }}" class="whitespace-nowrap text-indigo-100 hover:text-white transition {{ request()->routeIs('home') ? 'text-white font-bold' : 'text-indigo-100' }}">
+                        Claim
+                         <a href="{{ route('contact') }}" class="whitespace-nowrap text-indigo-100 hover:text-white transition {{ request()->routeIs('home') ? 'text-white font-bold' : 'text-indigo-100' }}">
+                        Contact
                     </a>
                 </div>
 
@@ -48,7 +43,7 @@
 @else
     {{-- BELUM LOGIN: Tombol Alamat (Maps) --}}
     <a href="{{ route('login') }}" class="bg-white text-indigo-900 px-5 py-1.5 rounded-full text-sm font-bold hover:bg-indigo-50 transition shadow-md whitespace-nowrap">
-        Alamat
+        Login
 </a>
 @endauth
                 </div>
