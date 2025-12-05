@@ -1,48 +1,48 @@
 <x-app-layout>
 
     {{-- HEADER SECTION --}}
-    <div class="bg-indigo-900 py-20">
+    <div class="bg-indigo-900 py-20 lg:py-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">
                 Tentang PT Savannah Jaya Utama
             </h1>
-            <p class="text-xl text-indigo-200 max-w-2xl mx-auto">
+            <p class="text-lg md:text-xl text-indigo-200 max-w-2xl mx-auto">
                 Mitra terpercaya Anda dalam melindungi aset intelektual dan karya kreatif di era digital.
             </p>
         </div>
     </div>
+    
+    ---
 
-    {{-- STORY SECTION --}}
-    <div class="bg-white py-16">
+    {{-- STORY SECTION (Visi & Misi) --}}
+    <div class="bg-white py-16 lg:py-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-center">
 
                 {{-- Kolom Kiri: Gambar/Ilustrasi --}}
-                <div class="relative">
-                    <div class="absolute inset-0 bg-indigo-100 rounded-2xl transform rotate-3"></div>
+                <div class="relative order-2 md:order-1"> <div class="absolute inset-0 bg-indigo-100 rounded-2xl transform rotate-3"></div>
                     <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                        alt="Team Meeting" class="relative rounded-2xl shadow-xl w-full object-cover h-80 md:h-96">
+                        alt="Team Meeting" class="relative rounded-2xl shadow-xl w-full object-cover h-64 md:h-96">
                 </div>
 
                 {{-- Kolom Kanan: Teks --}}
-                <div>
-                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Visi & Misi Kami</h2>
-                    <p class="text-gray-600 text-lg mb-6 leading-relaxed">
-                        Menjadi perusahaan Konsultan Penjamin Keuangan yang terkemuka dengan pengelolaan managemen yang
-                        handal.
-                        Menjadi perusahaan yang dapat memenuhi segala kebutuhan penerbitan instrumen penjaminan
-                        keuangan.
-                        Menjadi perusahaan yang berintegritas dalam perkembangan teknologi keuangan.
-                    </p>
-                    <p class="text-gray-600 text-lg mb-8 leading-relaxed">
-
-                        Memberikan Kepuasan dan Kemudahan dalam penerbitan Produk Instrumen Penjaminan Keuangan serta
-                        Asuransi Keuangan.
-                        Memberikan solusi terbaik dalam setiap permasalahan dalam Penerbitan Bank Garansi dan Surety
-                        Bond.
-                        Mengedepankan ketepatan waktu yang terintegrasi dengan Proses Penerbitan yang terjamin.
-                    </p>
-
+                <div class="order-1 md:order-2"> <h2 class="text-3xl font-bold text-gray-900 mb-6">Visi & Misi Kami</h2>
+                    
+                    <h3 class="text-xl font-semibold text-indigo-800 mb-2">Visi:</h3>
+                    <ul class="text-gray-600 text-lg mb-6 leading-relaxed list-disc list-inside space-y-2">
+                        <li>Menjadi perusahaan Konsultan Penjamin Keuangan yang terkemuka dengan pengelolaan managemen yang handal.</li>
+                        <li>Menjadi perusahaan yang dapat memenuhi segala kebutuhan penerbitan instrumen penjaminan keuangan.</li>
+                        <li>Menjadi perusahaan yang berintegritas dalam perkembangan teknologi keuangan.</li>
+                    </ul>
+                    
+                    <h3 class="text-xl font-semibold text-indigo-800 mb-2">Misi:</h3>
+                    <ul class="text-gray-600 text-lg mb-8 leading-relaxed list-disc list-inside space-y-2">
+                        <li>Memberikan Kepuasan dan Kemudahan dalam penerbitan Produk Instrumen Penjaminan Keuangan serta Asuransi Keuangan.</li>
+                        <li>Memberikan solusi terbaik dalam setiap permasalahan dalam Penerbitan Bank Garansi dan Surety Bond.</li>
+                        <li>Mengedepankan ketepatan waktu yang terintegrasi dengan Proses Penerbitan yang terjamin.</li>
+                    </ul>
+                    
                     {{-- Statistik Kecil --}}
                     <div class="grid grid-cols-2 gap-6 border-t border-gray-100 pt-6">
                         <div>
@@ -59,9 +59,11 @@
             </div>
         </div>
     </div>
+    
+    ---
 
     {{-- TEAM SECTION --}}
-    <div class="bg-gray-50 py-16">
+    <div class="bg-gray-50 py-16 lg:py-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-gray-900">Tim Kami</h2>
@@ -69,32 +71,33 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                {{-- Anggota 1 --}}
                 <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition">
                     <img class="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 border-indigo-50"
                         src="https://ui-avatars.com/api/?name=Muhammad+Apipudin&background=312e81&color=fff"
-                        alt="Siti">
+                        alt="Muhammad Apipudin">
                     <h3 class="text-xl font-bold text-gray-900">Muhammad Apipudin</h3>
                     <p class="text-indigo-600 font-medium">Founder & CEO</p>
-                    <p class="text-gray-500 text-sm mt-2">Visioner di balik HAKI Protect dengan pengalaman 10 tahun di
-                        industri kreatif.</p>
+                    <p class="text-gray-500 text-sm mt-2">Visioner di balik HAKI Protect dengan pengalaman 10 tahun di industri kreatif.</p>
                 </div>
 
+                {{-- Anggota 2 --}}
                 <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition">
                     <img class="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 border-indigo-50"
-                        src="https://ui-avatars.com/api/?name=Fadli+Dwi+Nugraha&background=4338ca&color=fff" alt="Budi">
+                        src="https://ui-avatars.com/api/?name=Fadli+Dwi+Nugraha&background=4338ca&color=fff" alt="Fadli Dwi Nugraha">
                     <h3 class="text-xl font-bold text-gray-900">Fadli Dwi Nugraha</h3>
                     <p class="text-indigo-600 font-medium">Head of Legal</p>
-                    <p class="text-gray-500 text-sm mt-2">Ahli hukum hak kekayaan intelektual yang siap membela hak
-                        Anda.</p>
+                    <p class="text-gray-500 text-sm mt-2">Ahli hukum hak kekayaan intelektual yang siap membela hak Anda.</p>
                 </div>
 
+                {{-- Anggota 3 --}}
                 <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition">
                     <img class="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 border-indigo-50"
-                        src="https://ui-avatars.com/api/?name=Muhammad+rifky+putra+hilmanyah&background=6366f1&color=fff" alt="Dewi">
+                        src="https://ui-avatars.com/api/?name=Muhammad+rifky+putra+hilmanyah&background=6366f1&color=fff" alt="M.Rifky Putra H.">
                     <h3 class="text-xl font-bold text-gray-900">M.Rifky Putra H.</h3>
                     <p class="text-indigo-600 font-medium">Tech Lead</p>
-                    <p class="text-gray-500 text-sm mt-2">Arsitek sistem keamanan blockchain yang melindungi data Anda.
-                    </p>
+                    <p class="text-gray-500 text-sm mt-2">Arsitek sistem keamanan blockchain yang melindungi data Anda.</p>
                 </div>
             </div>
         </div>
