@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Claim;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB; 
+use Illuminate\Support\Facades\Storage; // <-- WAJIB: Import Storage untuk hapus file
 
 class ClaimController extends Controller
 {
@@ -48,21 +49,32 @@ class ClaimController extends Controller
         $claim->admin_notes = $request->input('admin_notes');
         $claim->save();
 
+        // Setelah sukses, bersihkan cache
+        \Artisan::call('cache:clear'); 
+
         return redirect()->route('admin.claims.show', $claim->id)
                          ->with('success', 'Status Klaim berhasil diperbarui.');
     }
 
     /**
-     * Menghapus Klaim.
+     * Menghapus Klaim dan file yang terkait dari storage.
      */
     public function destroy(Claim $claim)
     {
-        // Logika hapus dokumen terkait jika diperlukan
+        // 1. Hapus Dokumen terkait dari Storage (Penting untuk membersihkan storage)
+        if ($claim->document_contract_path) {
+            Storage::disk('public')->delete($claim->document_contract_path);
+        }
+        if ($claim->document_loss_path) {
+            Storage::disk('public')->delete($claim->document_loss_path);
+        }
         
+        // 2. Hapus Record dari Database
         $claim->delete();
 
+        // 3. Redirect kembali ke daftar klaim dengan pesan sukses
         return redirect()->route('admin.claims.index')
-                         ->with('success', 'Klaim berhasil dihapus.');
+                         ->with('success', 'Klaim ID #' . $claim->id . ' berhasil dihapus.');
     }
     
     // create, store, dan edit tidak diperlukan untuk Admin

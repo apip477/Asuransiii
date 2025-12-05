@@ -20,6 +20,7 @@ class Claim extends Model
         'document_contract_path', 
         'document_loss_path',
         'status',
+        'admin_notes',
     ];
 
     // Relasi ke User: Menghubungkan klaim ini ke pengguna yang mengajukan

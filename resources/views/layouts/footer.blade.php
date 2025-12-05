@@ -16,8 +16,10 @@
                 <h4 class="text-lg font-bold mb-4 border-b border-indigo-500 pb-2">Menu Cepat</h4>
                 <ul class="space-y-2 text-sm">
                     <li><a href="{{ route('home') }}" class="text-gray-400 hover:text-white transition">Home</a></li>
-                    <li><a href="{{ route('about') }}" class="text-gray-400 hover:text-white transition">Tentang Kami</a></li>
-                    <li><a href="{{ route('produk') }}" class="text-gray-400 hover:text-white transition">Produk Jaminan</a></li>
+                    <li><a href="{{ route('produk') }}" class="text-gray-400 hover:text-white transition">Product</a></li>
+                    <li><a href="{{ route('claim.create') }}" class="text-gray-400 hover:text-white transition">Claim</a></li>
+                    <li><a href="{{ route('contact') }}" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    <li><a href="{{ route('about') }}" class="text-gray-400 hover:text-white transition">About Us</a></li>
                 </ul>
             </div>
 

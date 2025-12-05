@@ -7,10 +7,12 @@ use App\Http\Controllers\Admin\SubmissionController as AdminSubmissionController
 use App\Http\Controllers\Admin\WorkController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\ContactController as AdminContactController;
+use App\Http\Controllers\Admin\ClaimController as AdminClaimController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Work;
 use App\Models\User;
 use App\Models\Mitra;
+use App\Models\Product;
 
 
 // 1. JALUR UMUM (Publik)
@@ -28,8 +30,8 @@ Route::get('/about-us', function () {
     return view('about');
 })->name('about');
 Route::get('/produk', function () {
-    $layanans = \App\Models\Layanan::all();
-    return view('produk', compact('layanans'));
+    $products = \App\Models\Product::all();
+    return view('produk', compact('products'));
 })->name('produk');
 // --- RUTE BARU: PRE-REGISTRATION FORM ---
 Route::get('/pre-register', function () {
@@ -70,15 +72,15 @@ Route::middleware('auth')->group(function () {
 });
 
 
-// 4. RUTE KHUSUS ADMIN (Dilindungi Middleware 'admin')
+// 4. RUTE KHUSUS ADMIN 
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
 
-    // URL: /admin/layouts - Direct access to admin layout
+    // URL: /admin/layouts 
     Route::get('/layouts', function () {
         return view('admin.layouts.app');
     })->name('admin.layouts');
 
-    // URL: /admin/dashboard - Logika Statistik Admin
+    // URL: /admin/dashboard 
     Route::get('/dashboard', function () {
         $worksCount = Work::count();
         $pendingCount = Work::where('status', 'pending')->count();
@@ -99,6 +101,10 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     // Rute Manajmen work
     Route::resource('work', App\Http\Controllers\Admin\WorkController::class)->names('admin.work');
 
+    // Rute Manajemen Products
+    Route::resource('products', App\Http\Controllers\Admin\ProductController::class)->names('admin.products');
+
+    Route::resource('claims', App\Http\Controllers\Admin\ClaimController::class)->names('admin.claims');
 
 // Rute contact
     Route::get('/contacts', [ContactController::class, 'index'])->name('admin.contacts.index');

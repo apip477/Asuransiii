@@ -21,8 +21,6 @@
                 
                 {{-- LOOPING DATA PRODUK DARI DATABASE --}}
                 @forelse ($products as $product)
-                    
-                    {{-- Alpine data untuk mengelola state expanded --}}
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100" x-data="{ expanded: false }">
                         
                         <img src="{{ asset('storage/' . $product->image_path) }}" 
