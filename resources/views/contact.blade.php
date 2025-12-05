@@ -114,4 +114,5 @@
         </section>
     </main>
 </body>
+@include('layouts.footer')
 </html>
