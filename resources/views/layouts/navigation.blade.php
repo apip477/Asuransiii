@@ -1,13 +1,13 @@
 {{-- resources/views/layouts/navigation.blade.php --}}
 <nav x-data="{ open: false }" class="relative">
-    
+
     {{-- TAMPILAN DESKTOP & TABLET (md:block) --}}
     <div class="hidden md:block w-full">
-        <div class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-auto max-w-6xl px-4 lg:px-0"> 
-            
+        <div class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-auto max-w-6xl px-4 lg:px-0">
+
             {{-- Container Pill Navy --}}
-            <div class="flex items-center justify-between bg-indigo-900 text-white rounded-full shadow-2xl px-5 py-2.5 border border-indigo-800"> 
-                
+            <div class="flex items-center justify-between bg-indigo-900 text-white rounded-full shadow-2xl px-5 py-2.5 border border-indigo-800">
+
                 {{-- LOGO SAVANNAH (Sisi Kiri) --}}
                 <a href="/" class="flex items-center gap-2 flex-shrink-0 hover:opacity-80 transition mr-6">
                     <div class="bg-white px-2 py-1.5 rounded-full flex items-center justify-center shadow-md">
@@ -19,8 +19,6 @@
                 <div class="flex items-center gap-4 lg:gap-5 text-sm font-medium">
                     <a href="{{ route('home') }}" class="whitespace-nowrap hover:text-indigo-200 transition {{ request()->routeIs('home') ? 'text-white font-bold' : 'text-indigo-100' }}">
                         Home
-<<<<<<< HEAD
-=======
                     </a>
                     <a href="{{ route('produk') }}" class="whitespace-nowrap text-indigo-100 hover:text-white transition">
                         Product
@@ -31,37 +29,14 @@
                     <a href="{{ route('contact') }}" class="whitespace-nowrap text-indigo-100 hover:text-white transition">
                         Contact
                     </a>
->>>>>>> 8346a8ce379cc73380dd85eae6adfbecc0c2f917
                     <a href="{{ route('about') }}" class="whitespace-nowrap hover:text-white transition {{ request()->routeIs('about') ? 'text-white font-bold' : 'text-indigo-100' }}">
                         About Us
-                    <a href="{{ route('produk') }}" class="whitespace-nowrap text-indigo-100 hover:text-white transition {{ request()->routeIs('home') ? 'text-white font-bold' : 'text-indigo-100' }}">
-                        Product 
-                     <a href="{{ route('claim.create') }}" class="whitespace-nowrap text-indigo-100 hover:text-white transition {{ request()->routeIs('home') ? 'text-white font-bold' : 'text-indigo-100' }}">
-                        Claim
-                         <a href="{{ route('contact') }}" class="whitespace-nowrap text-indigo-100 hover:text-white transition {{ request()->routeIs('home') ? 'text-white font-bold' : 'text-indigo-100' }}">
-                        Contact
                     </a>
                 </div>
 
                 {{-- LOGIN / ALAMAT (Sisi Kanan) --}}
-                <div class="ml-4 flex-shrink-0"> 
+                <div class="ml-4 flex-shrink-0">
                     @auth
-<<<<<<< HEAD
-    {{-- SUDAH LOGIN: Tombol Log Out Sederhana (Hanya Tulisan Log Out) --}}
-
-<form method="POST" action="{{ route('logout') }}" class="inline-flex">
-        @csrf
-        <button type="submit" class="bg-indigo-800 hover:bg-indigo-700 text-white rounded-full px-4 py-1.5 text-xs font-bold transition-colors whitespace-nowrap">
-            Log Out
-        </button>
-    </form>
-@else
-    {{-- BELUM LOGIN: Tombol Alamat (Maps) --}}
-    <a href="{{ route('login') }}" class="bg-white text-indigo-900 px-5 py-1.5 rounded-full text-sm font-bold hover:bg-indigo-50 transition shadow-md whitespace-nowrap">
-        Login
-</a>
-@endauth
-=======
                         {{-- SUDAH LOGIN: Tombol Log Out --}}
                         <form method="POST" action="{{ route('logout') }}" class="inline-flex">
                             @csrf
@@ -70,12 +45,11 @@
                             </button>
                         </form>
                     @else
-                        {{-- BELUM LOGIN: Tombol Alamat --}}
+                        {{-- BELUM LOGIN: Tombol Login --}}
                         <a href="{{ route('login') }}" class="bg-white text-indigo-900 px-5 py-1.5 rounded-full text-sm font-bold hover:bg-indigo-50 transition shadow-md whitespace-nowrap">
-                            Alamat
+                            Login
                         </a>
                     @endauth
->>>>>>> 8346a8ce379cc73380dd85eae6adfbecc0c2f917
                 </div>
             </div>
         </div>

@@ -18,10 +18,13 @@ class DatabaseSeeder extends Seeder
     {
         // Panggil AdminUserSeeder.php untuk membuat user admin.
         // Asumsi: File AdminUserSeeder.php sudah ada dan benar.
-        $this->call(AdminUserSeeder::class); 
+        $this->call(AdminUserSeeder::class);
+
+        // Seed mitra data
+        $this->call(MitraSeeder::class);
 
         // 1. Contoh User Biasa (Menggunakan Factory untuk data dummy)
-        // User::factory(10)->create(); 
+        // User::factory(10)->create();
 
         // 2. User Test yang eksplisit (Bisa digunakan untuk testing)
         User::factory()->create([
@@ -31,13 +34,13 @@ class DatabaseSeeder extends Seeder
         ]);
 
          //Opsional: Buat user Admin di sini jika Anda tidak menggunakan AdminUserSeeder
-        
+
         //User::create([
             //'name' => 'Admin Savannah',
             //'email' => 'admin@example.com',
             //'password' => Hash::make('password'),
             //'role' => 'admin', // Pastikan kolom 'role' ada di tabel 'users'
-        
-        
+
+
     }
 }
