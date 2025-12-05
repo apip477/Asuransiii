@@ -305,7 +305,43 @@
     </div>
   </div>
 </div>
-<!-- End Clients -->
+<div class="mt-10 mb-12 px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 mt-24">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
+                    Alamat Kami
+                </h2>
+                <div class="h-1.5 w-24 bg-indigo-900 mx-auto rounded-full"></div>
+            </div>
+    
+    <div class="relative w-full h-[450px] rounded-lg overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700">
+        
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.1651204092404!2d106.9318333!3d-6.2310619!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698d003e313be1%3A0x9191277771f5922a!2sPT.%20SAVANNAH%20JAYA%20UTAMA!5e1!3m2!1sid!2sid!4v1764953091987!5m2!1sid!2sid" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            class="absolute top-0 left-0"
+        ></iframe>
+        </div>
+    
+    <div class="text-center mt-4 text-gray-600 dark:text-gray-400">
+        <p>
+            PT. SAVANNAH JAYA UTAMA <br>
+            Jl. Taman Malaka Selatan Gg. D No.6, RT.10/RW.9, Malaka Jaya, <br>
+            Kec. Duren Sawit, Kota Jakarta Timur, Jakarta 13460.
+        </p>
+        <p class="mt-2">
+            <a href="https://www.google.com/maps/place/PT.+SAVANNAH+JAYA+UTAMA/@-6.231062,106.931833,694m/data=!3m1!1e3!4m6!3m5!1s0x2e698d003e313be1:0x9191277771f5922a!8m2!3d-6.2310619!4d106.9318333!16s%2Fg%2F11w3k7fw9_?hl=id&entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D" 
+               target="_blank" 
+               class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200 font-medium">
+                Lihat Peta Lebih Besar
+            </a>
+        </p>
+    </div>
+</div>
 
         </div>
     </div>
