@@ -6,7 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Models\Work; 
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse; 
-use Illuminate\Support\Facades\Auth; // Tambahkan ini jika dibutuhkan di masa depan
+use Illuminate\Support\Facades\Auth; 
+
+// WAJIB DITAMBAHKAN: Import Mail Facade dan Mailable Class
+use Illuminate\Support\Facades\Mail;
+use App\Mail\UserClaimApprovedNotification; // Asumsi ini adalah nama Mailable Class Anda
 
 class WorkController extends Controller
 {
@@ -17,8 +21,8 @@ class WorkController extends Controller
     {
         // Mengambil semua karya dan memuat relasi user pemiliknya
         $works = Work::with('user')
-                    ->orderBy('created_at', 'desc')
-                    ->get();
+                     ->orderBy('created_at', 'desc')
+                     ->get();
         
         return view('admin.tables.works.index', compact('works'));
     }
@@ -36,7 +40,7 @@ class WorkController extends Controller
     }
 
     /**
-     * Memperbarui status karya (Setujui/Tolak).
+     * Memperbarui status karya (Setujui/Tolak) dan mengirim notifikasi WA.
      */
     public function update(Request $request, Work $work): RedirectResponse
     {
@@ -51,7 +55,20 @@ class WorkController extends Controller
         if ($newStatus === 'verified') {
             // Beri nomor sertifikat/jaminan baru (SJU-tahun-timestamp)
             $work->certificate_number = 'SJU-' . date('Y') . time(); 
-            $message = 'Pengajuan berhasil diverifikasi dan nomor sertifikat telah diterbitkan.';
+            $message = 'Pengajuan berhasil diverifikasi. Notifikasi WA dikirim ke user.'; // Pesan diperbarui
+            
+            // 🚨 LOGIKA PENGIRIMAN EMAIL DENGAN INSTRUKSI WA
+            // Pastikan user memiliki email yang valid
+            if ($work->user && $work->user->email) {
+                try {
+                    Mail::to($work->user->email)->send(new UserClaimApprovedNotification($work));
+                } catch (\Exception $e) {
+                    // Log error jika pengiriman email gagal, tapi lanjutkan proses
+                    \Log::error('Failed to send email notification: ' . $e->getMessage());
+                }
+            }
+            // ---------------------------------------------
+
         } elseif ($newStatus === 'rejected') {
             $message = 'Pengajuan telah ditolak.';
         }
@@ -65,7 +82,7 @@ class WorkController extends Controller
                          ->with('success', $message);
     }
 
-    // --- Method Resource Lainnya (Dibiarkan Kosong Dulu) ---
+    // --- Method Resource Lainnya ---
 
     public function create()
     {
