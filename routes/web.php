@@ -8,6 +8,10 @@ use App\Http\Controllers\Admin\WorkController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\ContactController as AdminContactController;
 use App\Http\Controllers\Admin\ClaimController as AdminClaimController;
+
+
+use App\Http\Controllers\Auth\ResetPasswordController;
+
 use Illuminate\Support\Facades\Route;
 use App\Models\Work;
 use App\Models\User;
@@ -18,8 +22,15 @@ use App\Models\Product;
 // 1. JALUR UMUM (Publik)
 Route::get('/', function () {
     $mitras = Mitra::all();
+
     return view('home', compact('mitras',));
 })->name('home');
+
+$banks = $mitras; 
+
+    return view('home', compact('mitras', 'banks'));
+})->name('home');;
+
 // Public contact form
 Route::get('/contact', function () {
     return view('contact');
@@ -68,6 +79,14 @@ Route::middleware('auth')->group(function () {
         Route::get('/submission/create', [SubmissionController::class, 'create'])->name('user.submission.create');
         Route::post('/submission', [SubmissionController::class, 'store'])->name('user.submission.store');
     });
+
+
+    Route::get('reset-password/{token}', [ResetPasswordController::class, 'showResetForm'])
+    ->name('password.reset');
+
+    Route::post('reset-password', [ResetPasswordController::class, 'reset'])
+    ->name('password.update');
+
 
 });
 

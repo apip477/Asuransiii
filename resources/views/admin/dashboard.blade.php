@@ -30,9 +30,9 @@
             </a>
             <a href="{{ route('admin.mitra.index') }}" class="bg-green-600 text-white p-4 rounded hover:bg-green-700">
                 Manage Mitra
-            </a> <a href="{{ route('admin.work.index') }}" class="bg-yellow-500 text-white p-4 rounded hover:bg-yellow-600">
+            <a href="{{ route('admin.works.index') }}" class="bg-yellow-500 text-white p-4 rounded hover:bg-yellow-600">
                 Manage Work
-            </a>  </a> <a href="{{ route('admin.contacts.index') }}" class="bg-purple-600 text-white p-4 rounded hover:bg-purple-700">
+            </a>
                 Contact Messages
             </a>  <a href="{{ route('admin.products.index') }}" class="bg-red-600 text-white p-4 rounded hover:bg-red-700">
                 Product Management
