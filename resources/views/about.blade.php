@@ -61,43 +61,6 @@
     </div>
 
     {{-- TEAM SECTION --}}
-    <div class="bg-gray-50 py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-900">Tim Kami</h2>
-                <p class="text-gray-500 mt-2">Orang-orang hebat di balik perlindungan karya Anda.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition">
-                    <img class="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 border-indigo-50"
-                        src="https://ui-avatars.com/api/?name=Muhammad+Apipudin&background=312e81&color=fff"
-                        alt="Siti">
-                    <h3 class="text-xl font-bold text-gray-900">Muhammad Apipudin</h3>
-                    <p class="text-indigo-600 font-medium">Founder & CEO</p>
-                    <p class="text-gray-500 text-sm mt-2">Visioner di balik HAKI Protect dengan pengalaman 10 tahun di
-                        industri kreatif.</p>
-                </div>
-
-                <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition">
-                    <img class="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 border-indigo-50"
-                        src="https://ui-avatars.com/api/?name=Fadli+Dwi+Nugraha&background=4338ca&color=fff" alt="Budi">
-                    <h3 class="text-xl font-bold text-gray-900">Fadli Dwi Nugraha</h3>
-                    <p class="text-indigo-600 font-medium">Head of Legal</p>
-                    <p class="text-gray-500 text-sm mt-2">Ahli hukum hak kekayaan intelektual yang siap membela hak
-                        Anda.</p>
-                </div>
-
-                <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition">
-                    <img class="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 border-indigo-50"
-                        src="https://ui-avatars.com/api/?name=Muhammad+rifky+putra+hilmanyah&background=6366f1&color=fff" alt="Dewi">
-                    <h3 class="text-xl font-bold text-gray-900">M.Rifky Putra H.</h3>
-                    <p class="text-indigo-600 font-medium">Tech Lead</p>
-                    <p class="text-gray-500 text-sm mt-2">Arsitek sistem keamanan blockchain yang melindungi data Anda.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
+   
 
 </x-app-layout>
