@@ -38,7 +38,7 @@ class AuthenticatedSessionController extends Controller
     }
     
     // USER BIASA diarahkan ke Form Pengajuan
-    return redirect()->route('user.submission.create'); 
+    return redirect()->route('home'); 
     // ----------------------------------------------------
 }
     /**
