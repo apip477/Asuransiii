@@ -99,7 +99,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     })->name('admin.dashboard');
 
     // Rute Manajemen Karya Cipta/Pengajuan
-    Route::resource('works', App\Http\Controllers\Admin\WorkController::class);
+   Route::resource('works', App\Http\Controllers\Admin\WorkController::class);
 
     // Rute Manajemen Layanan
     Route::resource('layanan', App\Http\Controllers\Admin\LayananController::class)->names('admin.layanan');
