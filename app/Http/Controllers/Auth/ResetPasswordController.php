@@ -2,50 +2,63 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Str;
+use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
 class ResetPasswordController extends Controller
 {
     /**
-     * Menampilkan formulir reset password.
-     * Metode ini dipanggil saat pengguna mengklik tautan dari email.
+     * Display the password reset view.
      */
     public function showResetForm(Request $request, $token = null): View
     {
-        // =============================================================
-        // DEBUGGING SEMENTARA UNTUK MENGUJI VARIABEL $token
-        // =============================================================
-        
-        if (is_null($token)) {
-            // Jika token tidak ditemukan di URL, hentikan dan tampilkan pesan error
-            dd('ERROR: TOKEN TIDAK DITEMUKAN DI URL! Cek rute dan tautan email Anda.');
-        } else {
-            // Jika token ditemukan, hentikan dan tampilkan token yang berhasil ditangkap
-            dd('TOKEN BERHASIL DITEMUKAN:', $token);
-        }
-        
-        // =============================================================
-        // Akhir dari Debugging
-        // =============================================================
-        
-        // PENTING: Meneruskan variabel $token dan $email ke view
         return view('auth.reset-password')->with([
+            'request' => $request,
             'token' => $token,
-            'email' => $request->email, // Ambil email dari query string di URL
         ]);
     }
 
     /**
-     * Memproses permintaan POST untuk mereset password.
-     * Di sini Anda akan menambahkan logika untuk validasi dan update password ke database.
+     * Handle an incoming new password request.
+     *
+     * @throws \Illuminate\Validation\ValidationException
      */
-    public function reset(Request $request)
+    public function reset(Request $request): RedirectResponse
     {
-        // ... (Logika untuk memvalidasi dan mengupdate password akan diletakkan di sini)
-        
-        // Untuk sementara, Anda bisa menambahkan dd() untuk memastikan ini terpanggil:
-        // dd('Reset password logic here.', $request->all());
+        $request->validate([
+            'token' => ['required'],
+            'email' => ['required', 'email'],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ]);
+
+        // Here we will attempt to reset the user's password. If it is successful we
+        // will update the password on an actual user model and persist it to the
+        // database. Otherwise we will parse the error and return the response.
+        $status = Password::reset(
+            $request->only('email', 'password', 'password_confirmation', 'token'),
+            function ($user) use ($request) {
+                $user->forceFill([
+                    'password' => Hash::make($request->password),
+                    'remember_token' => Str::random(60),
+                ])->save();
+
+                event(new PasswordReset($user));
+            }
+        );
+
+        // If the password was successfully reset, we will redirect the user back to
+        // the application's home authenticated view. If there is an error we can
+        // redirect them back to where they came from with their error message.
+        return $status == Password::PASSWORD_RESET
+                    ? redirect()->route('login')->with('status', __($status))
+                    : back()->withInput($request->only('email'))
+                            ->withErrors(['email' => __($status)]);
     }
 }
