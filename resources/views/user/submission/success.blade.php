@@ -15,7 +15,7 @@
                 </h4>
 
                 <p class="text-gray-600 mb-8">
-                    Anda tidak perlu melakukan aksi apa pun lagi. Silakan cek email Anda untuk notifikasi lanjutan dari Admin (admin@sju.com).
+                    Anda tidak perlu melakukan aksi apa pun lagi. Silakan cek email Anda untuk notifikasi lanjutan dari Admin (ptsavannahjayautama12@gmail.com).
                 </p>
 
                 <a href="{{ route('home') }}" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-bold rounded-full shadow-sm text-indigo-900 bg-gray-200 hover:bg-gray-300 transition">
