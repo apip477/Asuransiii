@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\SubmissionAcceptedNotification;
 use App\Models\Work; 
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse; 
@@ -42,47 +43,34 @@ class WorkController extends Controller
     /**
      * Memperbarui status karya (Setujui/Tolak) dan mengirim notifikasi WA.
      */
-    public function update(Request $request, Work $work): RedirectResponse
-    {
-        // 1. Validasi Status yang dikirimkan
-        $request->validate([
-            'status' => ['required', 'in:verified,rejected']
-        ]);
+// app/Http/Controllers/Admin/WorkController.php
 
-        $newStatus = $request->input('status');
-        $message = '';
+public function update(Request $request, Work $work) // Asumsi menggunakan model Work
+{
+    $newStatus = $request->input('status'); // Ambil status dari form Admin
+    // Ambil alasan penolakan jika ada
+    $rejectionReason = $request->input('reason'); 
 
-        if ($newStatus === 'verified') {
-            // Beri nomor sertifikat/jaminan baru (SJU-tahun-timestamp)
-            $work->certificate_number = 'SJU-' . date('Y') . time(); 
-            $message = 'Pengajuan berhasil diverifikasi. Notifikasi WA dikirim ke user.'; // Pesan diperbarui
-            
-            // 🚨 LOGIKA PENGIRIMAN EMAIL DENGAN INSTRUKSI WA
-            // Pastikan user memiliki email yang valid
-            if ($work->user && $work->user->email) {
-                try {
-                    Mail::to($work->user->email)->send(new UserClaimApprovedNotification($work));
-                } catch (\Exception $e) {
-                    // Log error jika pengiriman email gagal, tapi lanjutkan proses
-                    \Log::error('Failed to send email notification: ' . $e->getMessage());
-                }
-            }
-            // ---------------------------------------------
+    // 1. Update status
+    $work->status = $newStatus;
+    if ($newStatus === 'rejected') {
+        // Simpan alasan penolakan jika diperlukan
+        $work->rejection_reason = $rejectionReason; 
+    }
+    $work->save();
 
-        } elseif ($newStatus === 'rejected') {
-            $message = 'Pengajuan telah ditolak.';
-        }
-        
-        // 2. Update status dan simpan ke database
-        $work->status = $newStatus;
-        $work->save();
+    // 2. Kirim Notifikasi ke Nasabah
+    Mail::to($work->user->email)->send(new SubmissionAcceptedNotification($work, $newStatus));
 
-        // 3. Redirect kembali ke halaman daftar karya (index)
-        return redirect()->route('works.index')
-                         ->with('success', $message);
+    // 3. Redirect ke halaman index
+    if ($newStatus === 'accepted') {
+        $message = 'Pengajuan disetujui, notifikasi WA dikirimkan ke nasabah.';
+    } else {
+        $message = 'Pengajuan ditolak, notifikasi dikirimkan ke nasabah.';
     }
 
-    // --- Method Resource Lainnya ---
+    return redirect()->route('works.index')->with('success', $message);
+}
 
     public function create()
     {

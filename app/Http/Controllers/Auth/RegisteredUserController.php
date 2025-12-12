@@ -46,7 +46,7 @@ class RegisteredUserController extends Controller
 
         // --- LOGIKA REDIRECTION YANG SUDAH DIPERBAIKI ---
         // Setelah mendaftar, user diarahkan langsung ke form pengajuan untuk melanjutkan pesanan.
-        return redirect()->route('user.submission.create'); 
+        return redirect()->route('home'); 
         // ------------------------------------------------
     }
 }
