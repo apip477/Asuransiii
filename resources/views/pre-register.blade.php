@@ -14,8 +14,7 @@
                     </p>
                 </div>
 
-                {{-- FORMULIR LEAD (STRUKTUR YANG SUDAH DIPERBAIKI) --}}
-                <form method="POST" action="{{ route('lead.store') }}"> {{-- ACTION SUDAH BENAR --}}
+                <form method="POST" action="{{ route('lead.store') }}"> 
                     @csrf
                     
                     {{-- Nama Lengkap --}}
@@ -34,7 +33,7 @@
                     <div class="mb-6">
                         <label for="service" class="block font-medium text-sm text-gray-700">Jenis Jaminan yang Diperlukan</label>
                         <select name="service" id="service" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
-                            <option value="">-- Pilih Jenis Layanan --</option>
+                            <option value=""> Pilih Jenis Layanan </option>
                             <option value="Surety Bond">Surety Bond (Jaminan Kontrak)</option>
                             <option value="Bank Garansi">Bank Garansi (Jaminan Bank)</option>
                             <option value="General Insurance">General Insurance (Asuransi Umum)</option>
