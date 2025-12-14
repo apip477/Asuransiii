@@ -11,6 +11,37 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="p-6 text-gray-900">
+                    {{-- resources/views/admin/tables/works/index.blade.php --}}
+
+<div class="flex justify-between items-center mb-4">
+    <h2 class="text-xl font-bold">Daftar Pengajuan (Work Management)</h2>
+
+    <form action="{{ route('admin.work.index') }}" method="GET" class="flex items-center space-x-4">
+        <label for="statusFilter" class="text-gray-600">Filter Status:</label>
+        
+        <select name="status" id="statusFilter" class="border rounded-lg py-2 text-sm" onchange="this.form.submit()">
+            
+            {{-- Tambahkan 'selected' berdasarkan status yang aktif --}}
+            <option value="" @if(empty(request('status'))) selected @endif> Tampilkan Semua </option>
+            <option value="pending" @if(request('status') === 'pending') selected @endif>Pending</option>
+            <option value="verified" @if(request('status') === 'verified') selected @endif>Verified</option>
+            <option value="rejected" @if(request('status') === 'rejected') selected @endif>Rejected</option>
+
+        </select>
+        
+        {{-- BADGE PENDING (Menggunakan $pendingCount dari Controller) --}}
+        @if ($pendingCount > 0)
+            <span class="px-3 py-1 text-sm font-semibold text-yellow-800 bg-yellow-300 rounded-full">
+                Pending ({{ $pendingCount }})
+            </span>
+        @endif
+
+        {{-- Link Reset Filter --}}
+        @if(request('status'))
+            <a href="{{ route('admin.work.index') }}" class="text-sm text-red-600 hover:text-red-800">Reset Filter</a>
+        @endif
+    </form>
+</div>
 
                     @if ($works->isEmpty())
                         <div class="text-center py-10 text-gray-500">
@@ -58,7 +89,7 @@
                                                     @elseif($work->status === 'verified') 
                                                         bg-green-100 text-green-800
                                                     @else bg-red-100 text-red-800 @endif">
-                                                    
+
                                                     {{ $work->status }}
                                                 </span>
                                             </td>
@@ -70,13 +101,22 @@
                                                     class="text-indigo-600 hover:text-indigo-900">
                                                     Lihat Detail
                                                 </a>
+                                                <form action="{{ route('works.destroy', $work->id) }}" method="POST"
+                                                    class="d-inline">
+                                                    @csrf
+                                                    @method('DELETE')
+
+                                                    <button type="submit" class="text-red-600 hover:text-red-800 transition""
+                                                        onclick="return confirm('Apakah Anda yakin ingin menghapus pengajuan ini? Data tidak dapat dikembalikan.');">
+                                                        Delete
+                                                    </button>
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
                             </table>
                         </div>
-
                     @endif
                 </div>
             </div>

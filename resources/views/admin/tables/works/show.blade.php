@@ -58,7 +58,7 @@
                                     @csrf
                                     @method('PATCH')
                                     <button type="submit" name="status" value="verified" class="w-full bg-green-600 text-white py-2 rounded-lg font-bold hover:bg-green-700 transition">
-                                        ✔ SETUJUI & VERIFIKASI
+                                         Setujui & Verifikasi
                                     </button>
                                 </form>
                                 
@@ -67,7 +67,7 @@
                                     @csrf
                                     @method('PATCH')
                                     <button type="submit" name="status" value="rejected" class="w-full bg-red-600 text-white py-2 rounded-lg font-bold hover:bg-red-700 transition">
-                                        ✕ TOLAK Pengajuan
+                                        Tolak Pengajuan
                                     </button>
                                 </form>
                             </div>

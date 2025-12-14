@@ -8,9 +8,8 @@ use App\Models\Work;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse; 
 use Illuminate\Support\Facades\Auth; 
-
-// WAJIB DITAMBAHKAN: Import Mail Facade dan Mailable Class
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage; // <-- WAJIB DITAMBAHKAN UNTUK MENGHAPUS FILE
 use App\Mail\UserClaimApprovedNotification; // Asumsi ini adalah nama Mailable Class Anda
 
 class WorkController extends Controller
@@ -18,14 +17,26 @@ class WorkController extends Controller
     /**
      * Menampilkan daftar karya (index).
      */
-    public function index()
+    public function index(Request $request)
     {
-        // Mengambil semua karya dan memuat relasi user pemiliknya
-        $works = Work::with('user')
-                     ->orderBy('created_at', 'desc')
-                     ->get();
+        // 1. Ambil status filter (Disimpan di sini untuk digunakan di index)
+        $filterStatus = $request->query('status');
+        $searchTerm = $request->query('search');
+
+        // 2. Mulai query
+        $query = Work::with('user')->orderBy('created_at', 'desc');
         
-        return view('admin.tables.works.index', compact('works'));
+        // 3. Terapkan filter jika ada
+        if (!empty($filterStatus)) {
+            $query->where('status', $filterStatus);
+        }
+
+        // 4. Eksekusi query & Hitung pending untuk badge
+        $works = $query->get();
+        $pendingCount = Work::where('status', 'pending')->count();
+        
+        // 5. Kirim data ke view
+        return view('admin.tables.works.index', compact('works', 'filterStatus', 'pendingCount'));
     }
 
     /**
@@ -43,34 +54,34 @@ class WorkController extends Controller
     /**
      * Memperbarui status karya (Setujui/Tolak) dan mengirim notifikasi WA.
      */
-// app/Http/Controllers/Admin/WorkController.php
+    public function update(Request $request, Work $work)
+    {
+        $newStatus = $request->input('status');
+        $rejectionReason = $request->input('reason'); 
 
-public function update(Request $request, Work $work) // Asumsi menggunakan model Work
-{
-    $newStatus = $request->input('status'); // Ambil status dari form Admin
-    // Ambil alasan penolakan jika ada
-    $rejectionReason = $request->input('reason'); 
+        // 1. Update status
+        $work->status = $newStatus;
+        if ($newStatus === 'rejected') {
+            $work->rejection_reason = $rejectionReason; 
+        }
+        $work->save();
 
-    // 1. Update status
-    $work->status = $newStatus;
-    if ($newStatus === 'rejected') {
-        // Simpan alasan penolakan jika diperlukan
-        $work->rejection_reason = $rejectionReason; 
+        // 2. Kirim Notifikasi ke Nasabah
+        // Pastikan Anda menggunakan Mailable Class yang benar: SubmissionAcceptedNotification
+        if ($work->user && $work->user->email) {
+             Mail::to($work->user->email)->send(new SubmissionAcceptedNotification($work, $newStatus));
+        }
+
+        // 3. Redirect ke halaman index dengan nama route yang dikoreksi (admin.work.index)
+        if ($newStatus === 'accepted') {
+            $message = 'Pengajuan disetujui, notifikasi WA dikirimkan ke nasabah.';
+        } else {
+            $message = 'Pengajuan ditolak, notifikasi dikirimkan ke nasabah.';
+        }
+
+        // KOREKSI REDIRECT NAME
+        return redirect()->route('admin.work.index')->with('success', $message);
     }
-    $work->save();
-
-    // 2. Kirim Notifikasi ke Nasabah
-    Mail::to($work->user->email)->send(new SubmissionAcceptedNotification($work, $newStatus));
-
-    // 3. Redirect ke halaman index
-    if ($newStatus === 'accepted') {
-        $message = 'Pengajuan disetujui, notifikasi WA dikirimkan ke nasabah.';
-    } else {
-        $message = 'Pengajuan ditolak, notifikasi dikirimkan ke nasabah.';
-    }
-
-    return redirect()->route('works.index')->with('success', $message);
-}
 
     public function create()
     {
@@ -87,8 +98,20 @@ public function update(Request $request, Work $work) // Asumsi menggunakan model
         return view('admin.works.edit', compact('work'));
     }
     
+    /**
+     * Menghapus pengajuan dan dokumen terkait.
+     */
     public function destroy(Work $work)
     {
-        // Menghapus pengajuan
+        // Hapus dokumen fisik dari storage (jika ada)
+        if ($work->document_path) {
+            Storage::disk('public')->delete($work->document_path);
+        }
+        
+        // Hapus entri dari database
+        $work->delete();
+        
+        // KOREKSI REDIRECT NAME
+        return redirect()->route('admin.work.index')->with('success', 'Pengajuan berhasil dihapus.');
     }
 }

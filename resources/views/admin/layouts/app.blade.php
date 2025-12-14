@@ -14,10 +14,6 @@
     </head>
     <body class="antialiased bg-gray-100">
         <div class="min-h-screen flex">
-            
-            {{-- ================================================== --}}
-            {{-- BAGIAN KIRI: FIXED SIDEBAR (NAVY THEME) --}}
-            {{-- ================================================== --}}
             <div class="w-64 bg-indigo-900 text-white flex flex-col fixed h-screen shadow-2xl z-20">
                 
                 {{-- LOGO BRAND --}}
@@ -25,7 +21,7 @@
                     SJU Admin Panel
                 </div>
                 
-                {{-- SIDEBAR MENU --}}
+                {{-- SIDEBAR MENU (Tidak diubah) --}}
                 <nav class="flex-1 px-2 py-4 space-y-2 overflow-y-auto">
                     
                     {{-- 1. Dashboard (Akses Cepat) --}}
@@ -69,7 +65,6 @@
                             </a>
 
 
-
                         </div>
                     </div>
                     
@@ -77,7 +72,7 @@
 
                 {{-- Tombol Logout (Bawah) --}}
                 <div class="mt-auto p-4 border-t border-indigo-700">
-                     <form method="POST" action="{{ route('logout') }}">
+                    <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button type="submit" class="flex items-center w-full px-4 py-2 text-sm font-medium rounded-lg text-red-300 hover:bg-indigo-700 hover:text-white transition duration-200">
                             <svg class="h-5 w-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path></svg>
@@ -86,19 +81,34 @@
                     </form>
                 </div>
             </div>
-
-            {{-- ================================================== --}}
-            {{-- BAGIAN KANAN: HEADER & KONTEN (Main Content) --}}
-            {{-- ================================================== --}}
             <div class="flex-1 ml-64"> 
                 
-                {{-- HEADER PANEL ATAS (Untuk Judul Halaman & Aksi Cepat) --}}
+                {{-- HEADER PANEL ATAS (DENGAN SEARCH BAR) --}}
                 <header class="bg-white shadow-sm h-16 flex items-center px-6 sticky top-0 z-10 justify-between">
+                    
+                    {{-- 1. JUDUL HALAMAN (Kiri) --}}
                     <h1 class="text-lg font-semibold text-gray-700">
                         {{ $header ?? 'Admin Panel' }}
                     </h1>
                     
-                    {{-- Tombol Aksi Cepat Sesuai Screenshot (Contoh) --}}
+                    {{-- 2. SEARCH BAR PILL (Tengah) --}}
+                    <div class="flex-grow max-w-lg mx-auto px-4"> {{-- px-4 untuk memberi jarak dari kiri/kanan --}}
+                        <form action="{{ route('admin.work.index') }}" method="GET" class="relative">
+                            <input type="search" 
+                                name="search" 
+                                placeholder="Cari Pengajuan/Nasabah..." 
+                                {{-- Menjaga nilai pencarian saat refresh --}}
+                                value="{{ request('search') }}" 
+                                class="w-full py-2 pl-10 pr-4 text-sm text-gray-700 bg-gray-100 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                            
+                            {{-- Ikon Search (SVG) --}}
+                            <svg class="absolute left-3 top-2.5 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.352l3.24 3.24a.75.75 0 11-1.06 1.06l-3.24-3.24A7 7 0 012 9z" clip-rule="evenodd" />
+                            </svg>
+                        </form>
+                    </div>
+
+                    {{-- 3. TOMBOL AKSI CEPAT (Kanan) --}}
                     <div class="flex items-center space-x-3">
                         <a href="{{ route('dashboard') }}" class="text-sm text-gray-500 hover:underline">
                             Lihat Dashboard User
